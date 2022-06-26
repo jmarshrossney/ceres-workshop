@@ -18,13 +18,13 @@ def lint(session):
 
 
 @nox.session
-def pages(session):
+def docs(session):
 
     root = pathlib.Path(__file__).parent
-    source = str(root / "pages" / "source")
+    source = str(root / "docs" / "source")
     package = str(root / "workshop")
-    html = str(root / "pages" / "_build" / "html")
-    index = str(root / "pages" / "_build" / "html" / "index.html")
+    html = str(root / "docs" / "_build" / "html")
+    index = str(root / "docs" / "_build" / "html" / "index.html")
 
     session.install("sphinx")
     session.install("cloud_sptheme")
