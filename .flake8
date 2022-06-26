@@ -1,0 +1,8 @@
+[flake8]
+exclude =
+    pages
+    .git
+    .github
+    .venv
+    .nox
+    __pycache__
