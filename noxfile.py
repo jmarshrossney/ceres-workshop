@@ -2,14 +2,16 @@ import pathlib
 import nox
 
 nox.options.sessions = []
-nox.options.default_venv_backend = "conda"
 nox.options.reuse_existing_virtualenvs = True
+
+# Seems like anaconda sphinx doesn't work on python 3.9
+# nox.options.default_venv_backend = "conda"
 
 
 @nox.session
 def lint(session):
-    session.conda_install("black")
-    session.conda_install("flake8")
+    session.install("black")
+    session.install("flake8")
     # Hmm not sure if I want to use a pyproject
     # session.run("black", ".")
     session.run("flake8", ".")
@@ -24,9 +26,9 @@ def pages(session):
     html = str(root / "pages" / "_build" / "html")
     index = str(root / "pages" / "_build" / "html" / "index.html")
 
-    session.conda_install("sphinx", channel="anaconda")
-    session.conda_install("cloud_sptheme", channel="conda-forge")
+    session.install("sphinx")
+    session.install("cloud_sptheme")
 
     # Maybe I don't use apidoc
-    #session.run("sphinx-apidoc", "-o", source, package, "--no-toc", "--force")
+    # session.run("sphinx-apidoc", "-o", source, package, "--no-toc", "--force")
     session.run("sphinx-build", source, html, "--color", "-b" "html")
