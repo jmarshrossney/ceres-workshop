@@ -21,10 +21,10 @@ def lint(session):
 
 
 @nox.session(reuse_venv=True)
-def docs(session):
+def pages(session):
     root = pathlib.Path(__file__).parent
-    source = str(root / "docs" / "source")
-    html = str(root / "docs" / "_build" / "html")
+    source = str(root / "pages")
+    html = str(root / "pages" / "_build" / "html")
 
     session.install("sphinx")
     session.install("cloud_sptheme")

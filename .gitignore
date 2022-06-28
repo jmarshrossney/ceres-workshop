@@ -1,4 +1,4 @@
 __pycache__/
 *.pyc
 .nox
-docs/_build
+pages/_build
