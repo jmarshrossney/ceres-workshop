@@ -2,14 +2,20 @@ import pathlib
 import nox
 
 nox.options.sessions = []
-# nox.options.reuse_existing_virtualenvs = True
 
 
 @nox.session
 def test(session):
     session.install(".")
     session.install("pytest")
-    session.run("pytest", "-s")
+    session.run("pytest", "-k", "not grade")
+
+
+@nox.session
+def grade(session):
+    session.install(".")
+    session.install("pytest")
+    session.run("pytest", "-k", "grade")
 
 
 @nox.session(reuse_venv=True)
