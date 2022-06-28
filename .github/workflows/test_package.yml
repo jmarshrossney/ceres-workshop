@@ -23,7 +23,7 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
             python-version: 3.9
-            mamba-version: 4.13
+            mamba-version: "*"
             channels: conda-forge,anaconda
             auto-update-conda: false
       - run: |
