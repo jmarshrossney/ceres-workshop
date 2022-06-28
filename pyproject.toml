@@ -15,8 +15,8 @@ Home = "https://github.com/marshrossney/ceres-workshop"
 Docs = "https://marshrossney.github.io/ceres-workshop"
 
 [tool.pytest.ini_options]
+testpaths = "ceres_workshop"
 python_files = ["test*.py", "grade*.py"]
-python_classes = ["Test", "Grade"]
 python_functions = ["test", "grade"]
 
 [tool.black]

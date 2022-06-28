@@ -1,23 +1,25 @@
 import nox
 
 
-@nox.session
-def test(session):
-    session.install(".")
-    session.install("pytest")
-    session.run("pytest", "-k", "not grade")
-
-
-@nox.session
+@nox.session(venv_backend="mamba")
 def grade(session):
-    session.install(".")
-    session.install("pytest")
-    session.run("pytest", "-k", "grade")
+    session.conda_install("conda-lock")
+    session.run(
+        "conda-lock",
+        "render",
+        "--kind",
+        "env",
+        "conda-lock.yml",
+    )
+    session.run(
+        "mamba",
+        "env",
+        "update",
+        "--file",
+        "conda-linux-64.lock.yml",
+    )
+    session.install(".", "--no-deps")
 
-
-@nox.session(reuse_venv=True)
-def lint(session):
-    session.install("black")
-    session.install("flake8")
-    session.run("black", ".")
-    session.run("flake8", ".")
+    session.run("flake8")
+    session.run("pytest")
+    session.run("pytest", "grading")

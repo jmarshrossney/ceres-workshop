@@ -3,9 +3,10 @@ name: Test Package
 on:
   push:
     branches:
-      - develop
+      - dev
       - task-1
       - task-2
+      - task-3
 
 jobs:
   build:
