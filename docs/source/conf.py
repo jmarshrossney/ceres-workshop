@@ -14,7 +14,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath("../.."))
-import workshop
+import ceres_workshop
 
 # -- Project information -----------------------------------------------------
 
@@ -23,8 +23,8 @@ copyright = "2022, Joe Marsh Rossney"
 author = "Joe Marsh Rossney"
 
 # The full version, including alpha/beta/rc tags
-version = ""#workshop.__version__
-release = ""#version
+version = ceres_workshop.__version__
+release = version
 
 
 # -- General configuration ---------------------------------------------------
@@ -75,10 +75,10 @@ html_short_title = "CEReS Workshop"
 
 html_theme = "cloud"
 html_theme_options = {
-        #"roottarget": 
-        "stickysidebar": True,
-        "highlighttoc": True,
-        "sidebar_localtoc_title": "Contents",
+    # "roottarget":
+    "stickysidebar": True,
+    "highlighttoc": True,
+    "sidebar_localtoc_title": "Contents",
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
