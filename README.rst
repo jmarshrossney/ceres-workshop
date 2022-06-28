@@ -1,12 +1,5 @@
-=======================
-Python, ML and all that
-=======================
+===============================
+CEReS Workshop on Python and ML
+===============================
 
-A workshop for the Coastal and Environmental Remote Sensing (CEReS) group at the UNiversity of Edinburgh.
-
----------------
-Getting Started
----------------
-
-1. Clone this repo
-2. Go to <pages> and follow instructions for creating a Python environment
+This branch is dedicated to developing the `workshop website <https://marshrossney.github.io/ceres-workshop>`_. You're probably in the wrong place...

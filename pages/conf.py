@@ -10,11 +10,6 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import os
-import sys
-
-sys.path.insert(0, os.path.abspath(".."))
-import ceres_workshop
 
 # -- Project information -----------------------------------------------------
 
@@ -23,7 +18,7 @@ copyright = "2022, Joe Marsh Rossney"
 author = "Joe Marsh Rossney"
 
 # The full version, including alpha/beta/rc tags
-version = ceres_workshop.__version__
+version = "0.1.0"
 release = version
 
 
@@ -33,18 +28,9 @@ release = version
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx.ext.napoleon",
     "sphinx.ext.extlinks",
     "sphinx.ext.intersphinx",
 ]
-
-# Napoleon
-napoleon_google_docstring = True
-napoleon_numpy_docstring = False
-napoleon_attr_annotations = True
-napoleon_include_special_with_doc = True
-# napoleon_use_param = True
-# napoleon_type_aliases = {}
 
 # External links
 # https://www.sphinx-doc.org/en/master/usage/extensions/extlinks.html
@@ -58,7 +44,7 @@ intersphinx_mapping = {
 }
 
 # Add any paths that contain templates here, relative to this directory.
-#templates_path = ["_templates"]
+# templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -83,4 +69,4 @@ html_theme_options = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-#html_static_path = ["_static"]
+# html_static_path = ["_static"]
