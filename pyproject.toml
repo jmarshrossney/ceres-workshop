@@ -14,6 +14,11 @@ dynamic = ["version", "description"]
 Home = "https://github.com/marshrossney/ceres-workshop"
 Docs = "https://marshrossney.github.io/ceres-workshop"
 
+[tool.pytest.ini_options]
+python_files = ["test*.py", "grade*.py"]
+python_classes = ["Test", "Grade"]
+python_functions = ["test", "grade"]
+
 [tool.black]
 line-length = 79
 target-version = ["py39"]
