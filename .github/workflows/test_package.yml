@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-
+      
       - name: Setup Miniconda
         uses: conda-incubator/setup-miniconda@v2
         with:
@@ -27,5 +27,10 @@ jobs:
             channels: conda-forge,anaconda
             auto-update-conda: false
       - run: |
-          pip install nox
-          nox
+          mamba install conda-lock
+          conda-lock render --kind env conda-lock.yml
+          mamba env update --file conda-linux-64.lock.yml
+          python -m pip install --upgrade pip
+          pip install . --no-deps
+          pytest
+          pytest grading
