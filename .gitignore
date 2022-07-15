@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+.nox
+pages/_build
