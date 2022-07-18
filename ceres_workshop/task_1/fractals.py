@@ -1,16 +1,40 @@
-"""
+r"""
 Module containing classes which visualise fractals in the complex plane.
+
+The fractals implemented here are based on the complex quadratic map
+
+.. math::
+
+    z_n \mapsto z_{n+1} = z_n^2 + c \qquad z_0, c \in \mathbb{C} \, .
+
+It can be shown that if :math:`z_n > 2` for any :math:`n`, then the map
+will diverge, i.e. :math:`z_n \to \infty` as :math:`n \to \infty`.
+    
+The **Mandelbrot set** is a subset of :math:`\mathbb{C}` comprising complex
+numbers :math:`c` for which the quadratic map remains finite for the
+starting value of :math:`z_0 = 0`.
+
+Similarly, **Julia sets** are subsets of :math:`\mathbb{C}` comprising
+complex numbers :math:`z_0` for which the quadratic map remains finite
+for some specific value of :math:`c`.
+
+A two-dimensional visualisation of these sets uses a colour map to indicate
+the number of iterations of the map required for :math:`z_n > 2`. Here an
+8-bit representation is used, i.e. 256 different colours.
 """
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.cm import get_cmap
 from PIL import Image
+from tqdm.autonotebook import tqdm
 
 from ceres_workshop.task_1.utils import complex_grid, quadratic_map
 
+FEIGENBAUM_DELTA = 621 / 133
+
 
 class Mandelbrot:
-    """
+    r"""
     Class which generates visualisations of the Mandelbrot set.
 
     Args:
@@ -41,9 +65,7 @@ class Mandelbrot:
             z0: The initial value for z
 
         Returns:
-            Integer between 0 and 255, whose value is the number of iterations
-            of the quadratic map z <- z^2 + c that are required for the modulus
-            of z to exceed 2
+            Integer between 0 and 255
 
         See Also: ``ceres_workshop.task_1.utils.quadratic_map``
         """
@@ -94,7 +116,7 @@ class Mandelbrot:
 
 class Julia(Mandelbrot):
     """
-    Class which generates visualisations of the Mandelbrot set.
+    Class which generates visualisations of Julia sets.
 
     Args:
         c_value:

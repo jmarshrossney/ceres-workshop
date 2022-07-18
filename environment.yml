@@ -1,0 +1,18 @@
+name: ceres
+channels:
+  - conda-forge
+  - anaconda
+dependencies:
+  - python=3.9
+  - conda-lock
+  - ca-certificates
+  - openssl
+  - flit
+  - certifi
+  - pytest
+  - black
+  - flake8
+  - numpy
+  - matplotlib
+  - ipython
+prefix: /home/joe/.miniconda3/envs/ceres

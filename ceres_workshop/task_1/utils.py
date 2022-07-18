@@ -1,10 +1,15 @@
+"""
+Module containing assorted utils.
+"""
 from pathlib import Path
 from warnings import warn
 
 import numpy as np
+import sympy
 from PIL import Image
 
-MAX_PIXELS = 1e5
+# Limit image to 1000 x 1000
+MAX_PIXELS = int(1e6)
 
 
 def complex_grid(
@@ -28,7 +33,9 @@ def complex_grid(
         A complex-valued NumPy array of dimensions ``(resolution, resolution)``,
         containing the coordinates of the grid points
     """
-    # TODO: check that number of pixels doesn't exceed MAX_PIXELS
+    assert (
+        resolution ** 2 <= MAX_PIXELS
+    ), f"Maximum number of pixels exceeded: {resolution}^2 > {MAX_PIXELS}"
     x, y = centre.real, centre.imag
     radius = extent / 2
     x_span = np.linspace(x - radius, x + radius, resolution)
@@ -43,13 +50,13 @@ def quadratic_map(c: complex, z0: complex) -> complex:
 
     The map is defined by
 
-        f : z -> z^2 + c
+    .. math::
 
-    where z and c are complex numbers.
+        z_n \mapsto z_{n+1} = z_n^2 + c \qquad z_0, c \in \mathbb{C}
 
     Args:
-        c: The additive constant
-        z0: The initial value for z
+        c: The additive constant :math:`c`
+        z0: The initial value :math:`z_0`
 
     Yields:
         The result of applying the map to the current value of z
@@ -87,3 +94,32 @@ def make_gif(
         duration=duration,
         loop=0,
     )
+
+
+def get_quadratic_map_roots(n: int) -> list[complex]:
+    r"""
+    Uses SymPy to compute complex roots of the quadratic map.
+
+    We compute the roots of the polynomial :math:`f_n(c)`, where
+    
+    .. math::
+
+        f_1 &= c \\
+        f_2 &= c^2 + c \\
+        f_3 &= (c^2 + c)^2 + c \\
+        \vdots
+
+    i.e. those values :math:`\{r_n\}` for which :math:`f_n(r_n) = 0`.
+
+    Args:
+        n: Number of iterations of the map, i.e. the polynomial order
+    """
+    assert isinstance(n, int), "n should be an integer"
+    assert n >= 1, "n should be 1 or greater"
+    c = sympy.var("c")
+    z = sympy.Poly(c)  # z_1 = c
+    for _ in range(1, n):
+        z = sympy.Poly(z ** 2 + c)  # z_n
+
+    roots = z.nroots()
+    return [complex(root) for root in roots]
