@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
-from ceres_workshop.task_1.fractals import Julia
-from ceres_workshop.task_1.scripts.parser import parser
+from ceres_workshop.fractals.fractals import Julia
+from ceres_workshop.fractals.scripts.parser import parser
 
 parser.add_argument(
     "-c",

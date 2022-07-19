@@ -28,10 +28,10 @@ from matplotlib.cm import get_cmap
 from PIL import Image
 from tqdm.autonotebook import tqdm
 
-from ceres_workshop.task_1.utils import complex_grid, quadratic_map
+from .utils import complex_grid, quadratic_map
 
-FEIGENBAUM_DELTA = 621 / 133
-
+FEIGENBAUM_DELTA = 4.669201609
+FEIGENBAUM_POINT = -1.401155189
 
 class Mandelbrot:
     r"""

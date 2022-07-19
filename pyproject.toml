@@ -15,8 +15,8 @@ Home = "https://github.com/marshrossney/ceres-workshop"
 Docs = "https://marshrossney.github.io/ceres-workshop"
 
 [project.scripts]
-mandel = "ceres_workshop.task_1.scripts.mandelbrot:main"
-julia = "ceres_workshop.task_1.scripts.julia:main"
+mandel = "ceres_workshop.fractals.scripts.mandelbrot:main"
+julia = "ceres_workshop.fractals.scripts.julia:main"
 
 [tool.pytest.ini_options]
 testpaths = "ceres_workshop"
