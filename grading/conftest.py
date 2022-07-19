@@ -23,5 +23,5 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     """
     )
 
-    if not failed:
+    if passed and not failed:
         print("    Congratulations! :)")
