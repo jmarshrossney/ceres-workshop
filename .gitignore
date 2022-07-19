@@ -1,4 +1,6 @@
 __pycache__/
 *.pyc
 .nox
+.venv
 pages/_build
+.ipynb_checkpoints/
