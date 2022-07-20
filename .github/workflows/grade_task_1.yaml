@@ -36,4 +36,4 @@ jobs:
       
       - name: Run Tests
         shell: bash -l {0}
-        run: pytest grading/test_task_1.py -s
+        run: pytest grading/test_task_1.py -s --tb=no

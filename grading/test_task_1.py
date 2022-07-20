@@ -1,4 +1,16 @@
-"""Grades task 1."""
+"""
+Runs a set of tests against task 1, giving the user a score.
+
+These tests can be run locally by executing
+
+.. code_block:: bash
+
+    pytest grading/test_task_1.py -s --tb=no
+
+in the root of the repository.
+
+They should also run upon pushes to the ``task-1`` and ``main`` branches.
+"""
 import inspect
 import pathlib
 import random
@@ -45,13 +57,13 @@ def test_module_hierarchy():
 @verbose
 def test_import_mandelbrot():
     """
-    Attempts to import `mandelbrot`.
+    Attempts to import `mandelbrot` module.
 
-    For this to work we need to install `mandelbrot` as a package.
+    For this to work we need to install ``mandelbrot`` as a package.
 
-    To make `mandelbrot` installable, it is recommended to create a
-    `pyproject.toml` file in the `task-1` directory. This can be acheived
-    using the `flit` package. Consult the workshop notes for details!
+    To make ``mandelbrot`` installable, it is recommended to create a
+    ``pyproject.toml`` file in the `task-1` directory. This can be acheived
+    using the Flit package. Consult the workshop notes for details!
     """
     check_import("mandelbrot")
 
@@ -61,14 +73,14 @@ def test_import_all_modules():
     """
     Attempts to import the following modules and submodules:
 
-        - `mandelbrot`
-        - `mandelbrot.fractals`
-        - `mandelbrot.utils`
-        - `mandelbrot.scripts`
-        - `mandelbrot.scripts.mandelbrot`
-        - `mandelbrot.scripts.julia`
-        - `mandelbrot.tests`
-        - `mandelbrot.tests.test_utils`
+    * ``mandelbrot``
+    * ``mandelbrot.fractals``
+    * ``mandelbrot.utils``
+    * ``mandelbrot.scripts``
+    * ``mandelbrot.scripts.mandelbrot``
+    * ``mandelbrot.scripts.julia``
+    * ``mandelbrot.tests``
+    * ``mandelbrot.tests.test_utils``
     """
     check_import("mandelbrot")
     check_import("mandelbrot.fractals")
@@ -101,7 +113,7 @@ def test_too_many_pixels():
     """
     Runs the `complex_grid` function with a too-high resolution.
 
-    This should fail with an AssertionError, and show a helpful
+    This should fail with an ``AssertionError``, and show a helpful
     error message.
     """
     from mandelbrot.utils import complex_grid, MAX_PIXELS
@@ -125,19 +137,18 @@ def test_script_annotations():
 
     Specifically, inspects the signatures of the following functions:
 
-        - `mandelbrot.scripts.mandelbrot.plot`
-        - `mandelbrot.scripts.julia.plot`
+    * ``mandelbrot.scripts.mandelbrot.plot``
+    * ``mandelbrot.scripts.julia.plot``
 
     And checks that the type annotations are
 
-        centre: complex
-        extent: float
-        resolution: int
-        cmap: str
-        output: str
-        c_value: complex (julia only)
-
-        return value: None
+    * ``centre: complex``
+    * ``extent: float``
+    * ``resolution: int``
+    * ``cmap: str``
+    * ``output: str``
+    * ``c_value: complex`` (julia only)
+    * Return value: ``None``
     """
     from mandelbrot.scripts.mandelbrot import plot as mandelbrot_plot
     from mandelbrot.scripts.julia import plot as julia_plot
@@ -171,10 +182,10 @@ def test_default_cmap():
 
     The functions
 
-        - `mandelbrot.scripts.mandelbrot.plot`
-        - `mandelbrot.scripts.julia.plot`
+    * ``mandelbrot.scripts.mandelbrot.plot``
+    * ``mandelbrot.scripts.julia.plot``
 
-    should take a `cmap` argument, which is a string corresponding to a
+    should take a ``cmap`` argument, which is a string corresponding to a
     matplotlib colourmap. This argument should have a default value so that
     we don't have to specify the colourmap every time.
     """
@@ -200,11 +211,11 @@ def test_plot_scripts():
 
     The functions
 
-        - `mandelbrot.scripts.mandelbrot.plot`
-        - `mandelbrot.scripts.julia.plot`
+    * ``mandelbrot.scripts.mandelbrot.plot``
+    * ``mandelbrot.scripts.julia.plot``
 
-    are run the argument `output` set to a random string + '.png', and
-    with a very low resolution to speed things up. The default `cmap`
+    are run the argument ``output`` set to a random string + ``.png``, and
+    with a very low resolution to speed things up. The default ``cmap``
     is used.
     """
     from mandelbrot.scripts.mandelbrot import plot as mandelbrot_plot
@@ -246,7 +257,7 @@ def test_no_plots_or_gifs():
     """
     Checks that plots and gifs aren't being uploaded to GitHub.
 
-    This checks the package directory `mandelbrot` for any image files.
+    This checks the package directory ``mandelbrot`` for any image files.
     Specifically, it checks for files with any extension corresponding
     to a filetype supported by ``plt.savefig``, as well as ``.gif`` files.
 
