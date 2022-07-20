@@ -11,9 +11,9 @@ This is meant to be fun, and perhaps even pique your interest in the maths behin
 
 Remember, you can bring up the documentation for any Python object using ``help(object)`` or, if you're using IPython, just ``object?``.
 
+------------
 
-
-.. toctree::
+.. toctree:: 
 
     task_1/getting_started
     task_1/main_task

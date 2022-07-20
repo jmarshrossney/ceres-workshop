@@ -20,7 +20,7 @@ Get the code running
 --------------------
 
 Navigate to the ``task-1`` directory and try to run ``python mandelbrot.py``.
-You should find that this fails due to being unable to import the required packages, unless you happen to have all of the dependencies installed in your current environment [#f1]_.
+You should find that this fails due to being unable to import the required packages, unless you happen to have all of the dependencies installed in your current environment. [#f1]_
 
 Create a Conda environment with Python 3.9 and IPython installed.
 By inspecting the code, try to install the required packages.
