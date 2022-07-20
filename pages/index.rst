@@ -2,7 +2,7 @@
 Workshop Outline
 ================
 
-CEReS Workshop on Python and Machine Learning, 4th July 2022.
+CEReS Workshop on Python and Machine Learning, 1st September 2022.
 
 .. toctree::
     :maxdepth: 2
@@ -11,4 +11,5 @@ CEReS Workshop on Python and Machine Learning, 4th July 2022.
     getting_started
     git
     python
+    task_1
 
