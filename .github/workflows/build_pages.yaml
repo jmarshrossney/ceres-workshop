@@ -24,7 +24,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install nox
-          nox
+          nox -e pages
         
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.3
