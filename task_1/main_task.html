@@ -1,0 +1,219 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Task 1 &#8212; CEReS Workshop 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Make an animation!" href="extension.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="extension.html" title="Make an animation!"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="getting_started.html" title="Getting Started"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../task_1.html" accesskey="U">Task 1: Fractals</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Task 1</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="task-1">
+<h1>Task 1<a class="headerlink" href="#task-1" title="Permalink to this heading">¶</a></h1>
+<section id="fix-the-bugs">
+<h2>Fix the bugs<a class="headerlink" href="#fix-the-bugs" title="Permalink to this heading">¶</a></h2>
+<p>On the last line of <code class="docutils literal notranslate"><span class="pre">mandelbrot.py</span></code> there is a commented-out line with <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>.
+Un-comment this and run the script.
+You should see a rather boring figure appear which looks nothing like a fractal.
+It seems we may have a bug…</p>
+<p>Comment the <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> statement out again.</p>
+<p>In the file <code class="docutils literal notranslate"><span class="pre">test_utils.py</span></code> there are some unit tests, which test some of the functions used to generate the fractal image.
+A test fails if one of the conditions in the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Into your Conda environment, install the <code class="docutils literal notranslate"><span class="pre">pytest</span></code> package, and update your <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file.
+Inside the <code class="docutils literal notranslate"><span class="pre">task-1</span></code> directory, run the command <code class="docutils literal notranslate"><span class="pre">pytest</span></code>.
+You should find that there are test failures.</p>
+<p>By inspecting the traceback provided by pytest, see if you can spot the bug.
+Hint: it’s a typo which affects the mathematical operations!</p>
+<p>Once you’ve fixed the bug and the tests are all passing, uncomment the <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> statement.
+The output should look rather more interesting than previously!</p>
+<p>Commit your changes and push to Github.</p>
+</section>
+<section id="open-a-pull-request">
+<h2>Open a pull request<a class="headerlink" href="#open-a-pull-request" title="Permalink to this heading">¶</a></h2>
+<p>Now that things are actually working, let’s be bold and state our intentions to merge our changes into the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.
+Github provides a nice way to do this called a ‘pull request’ (PR).</p>
+<p>Go to your repository on the Github website.
+TODO: there’s a setting which enables workflows on forks. Activate it.</p>
+<p>On Github, create a PR to merge <code class="docutils literal notranslate"><span class="pre">task-1</span></code> into <code class="docutils literal notranslate"><span class="pre">main</span></code>.
+Give your PR a sensible title.
+<strong>Do not merge the PR</strong>.</p>
+<p>You should see that a Github ‘workflow’ starts to run, and that it fails pretty quickly.
+Click on the workflow to see what went wrong.</p>
+</section>
+<section id="get-organised">
+<h2>Get Organised<a class="headerlink" href="#get-organised" title="Permalink to this heading">¶</a></h2>
+<p>Shoving everything in one <code class="docutils literal notranslate"><span class="pre">.py</span></code> file is not a scalable approach to writing code.
+It’s far better to adopt a <strong>modular</strong> structure where independent components are logically organised into packages and modules.</p>
+</section>
+<section id="create-a-package">
+<h2>Create a package<a class="headerlink" href="#create-a-package" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="catch-bad-inputs">
+<h2>Catch bad inputs<a class="headerlink" href="#catch-bad-inputs" title="Permalink to this heading">¶</a></h2>
+<p>Assert statement if too many pixels
+Warn user that file being overridden</p>
+</section>
+<section id="type-annotations">
+<h2>Type annotations<a class="headerlink" href="#type-annotations" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Task 1</a><ul>
+<li><a class="reference internal" href="#fix-the-bugs">Fix the bugs</a></li>
+<li><a class="reference internal" href="#open-a-pull-request">Open a pull request</a></li>
+<li><a class="reference internal" href="#get-organised">Get Organised</a></li>
+<li><a class="reference internal" href="#create-a-package">Create a package</a></li>
+<li><a class="reference internal" href="#catch-bad-inputs">Catch bad inputs</a></li>
+<li><a class="reference internal" href="#type-annotations">Type annotations</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="getting_started.html"
+                          title="Previous page">&larr; Getting Started</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="extension.html"
+                          title="Next page">&rarr; Make an animation!</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/task_1/main_task.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="extension.html" title="Make an animation!"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="getting_started.html" title="Getting Started"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../task_1.html" >Task 1: Fractals</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Task 1</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Joe Marsh Rossney.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

@@ -1,0 +1,197 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Getting Started &#8212; CEReS Workshop 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Task 1" href="main_task.html" />
+    <link rel="prev" title="Task 1: Fractals" href="../task_1.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="main_task.html" title="Task 1"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../task_1.html" title="Task 1: Fractals"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../task_1.html" accesskey="U">Task 1: Fractals</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Getting Started</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h1>
+<section id="create-a-working-branch">
+<h2>Create a working branch<a class="headerlink" href="#create-a-working-branch" title="Permalink to this heading">¶</a></h2>
+<p>Starting from the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of your local clone of the repository, create and checkout a new branch called <code class="docutils literal notranslate"><span class="pre">task-1</span></code>.
+This is the branch you are going to work on, before finally merging back into <code class="docutils literal notranslate"><span class="pre">main</span></code> when you’re happy with everything.</p>
+<p>Push this new branch to the remote repository (i.e. to your Github).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The branch must be named <code class="docutils literal notranslate"><span class="pre">task-1</span></code> for the tests to run when you make changes and push.</p>
+</div>
+</section>
+<section id="get-the-code-running">
+<h2>Get the code running<a class="headerlink" href="#get-the-code-running" title="Permalink to this heading">¶</a></h2>
+<p>Navigate to the <code class="docutils literal notranslate"><span class="pre">task-1</span></code> directory and try to run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">mandelbrot.py</span></code>.
+You should find that this fails due to being unable to import the required packages, unless you happen to have all of the dependencies installed in your current environment <a class="footnote-reference brackets" href="#f1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p>Create a Conda environment with Python 3.9 and IPython installed.
+By inspecting the code, try to install the required packages.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some packages such as <code class="docutils literal notranslate"><span class="pre">os</span></code> and <code class="docutils literal notranslate"><span class="pre">math</span></code> are Standard Library packages and do not require separate installation.</p>
+</div>
+<p>Once you have successfully installed the  there are no more import errors, save your environment specification to a file called <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> in the <code class="docutils literal notranslate"><span class="pre">task-1</span></code> directory, by usng the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code> command with the <code class="docutils literal notranslate"><span class="pre">--from-history</span></code> option.</p>
+<p>Commit <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> and push to GitHub.</p>
+<p class="rubric">Footnotes</p>
+<aside class="footnote brackets" id="f1" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>As we will discuss, this is <strong>not</strong> a good thing!</p>
+</aside>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Getting Started</a><ul>
+<li><a class="reference internal" href="#create-a-working-branch">Create a working branch</a></li>
+<li><a class="reference internal" href="#get-the-code-running">Get the code running</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="../task_1.html"
+                          title="Previous page">&larr; Task 1: Fractals</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="main_task.html"
+                          title="Next page">&rarr; Task 1</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/task_1/getting_started.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="main_task.html" title="Task 1"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../task_1.html" title="Task 1: Fractals"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../task_1.html" >Task 1: Fractals</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Getting Started</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Joe Marsh Rossney.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

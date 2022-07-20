@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Virtual Environments &#8212; CEReS Workshop 0.1.0 documentation</title>
+    <title>Make an animation! &#8212; CEReS Workshop 0.1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
@@ -37,8 +37,8 @@
 
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Task 1: Fractals" href="../task_1.html" />
-    <link rel="prev" title="Python Packaging" href="packaging.html" /> 
+    <link rel="next" title="Aside: Complex Numbers" href="complex_numbers.html" />
+    <link rel="prev" title="Task 1" href="main_task.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -50,15 +50,15 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../task_1.html" title="Task 1: Fractals"
+          <a href="complex_numbers.html" title="Aside: Complex Numbers"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="packaging.html" title="Python Packaging"
+          <a href="main_task.html" title="Task 1"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="../python.html" accesskey="U">Python</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Virtual Environments</a></li> 
+          <li class="nav-item nav-item-1"><a href="../task_1.html" accesskey="U">Task 1: Fractals</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Make an animation!</a></li> 
       </ul>
     </div>
     </div>
@@ -69,8 +69,25 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="virtual-environments">
-<h1>Virtual Environments<a class="headerlink" href="#virtual-environments" title="Permalink to this heading">¶</a></h1>
+  <section id="make-an-animation">
+<h1>Make an animation!<a class="headerlink" href="#make-an-animation" title="Permalink to this heading">¶</a></h1>
+<p>Install <code class="docutils literal notranslate"><span class="pre">jupyterlab</span></code> and <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> into your conda environment.</p>
+</section>
+<section id="extension-task">
+<h1>Extension task<a class="headerlink" href="#extension-task" title="Permalink to this heading">¶</a></h1>
+<p>Make a command-line interface that generate Mandelbrot or Julia set plots, either showing a matplotlib figure or saving as a png.
+Write a function with the signature <code class="docutils literal notranslate"><span class="pre">mandelbrot(midpoint,</span> <span class="pre">extent,</span> <span class="pre">resolution,</span> <span class="pre">cmap)</span></code>, which displays a plot of the Mandelbrot set.</p>
+<p>Put these functions in a separate folder called <code class="docutils literal notranslate"><span class="pre">scripts</span></code></p>
+<p>Now turn this into a script that can be called directly from the command line by running</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python mandelbrot.py ARGS OPTIONS
+</pre></div>
+</div>
+<p>inside the <code class="docutils literal notranslate"><span class="pre">scripts</span></code> directory. In the above, <code class="docutils literal notranslate"><span class="pre">ARGS</span></code> and <code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code> represent a sequence of arguments and options that specify the midpoint, extent, resolution and colour-map.</p>
+<p><strong>Hint:</strong> The simplest way to do this is using <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>, but this is the least best option.
+A better option is the <code class="docutils literal notranslate"><span class="pre">argparse</span></code> package, which is part of the Standard Library.
+However, there are much better parsers out there, e.g. <code class="docutils literal notranslate"><span class="pre">click</span></code>.</p>
+<p>Finally, turn your script into an <strong>entry point</strong> by modifying the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file to include a <code class="docutils literal notranslate"><span class="pre">[project.scripts]</span></code> section. You may need to refer to the <a class="reference external" href="https://flit.pypa.io/en/latest/index.html">Flit documentation</a>.</p>
+<p>If you’re successful, why not make a CLI tool to visualise Julia sets too!</p>
 </section>
 
 
@@ -79,21 +96,28 @@
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Make an animation!</a></li>
+<li><a class="reference internal" href="#extension-task">Extension task</a></li>
+</ul>
+
+  </div>
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="packaging.html"
-                          title="Previous page">&larr; Python Packaging</a></p>
+    <p class="topless"><a href="main_task.html"
+                          title="Previous page">&larr; Task 1</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="../task_1.html"
-                          title="Next page">&rarr; Task 1: Fractals</a></p>
+    <p class="topless"><a href="complex_numbers.html"
+                          title="Next page">&rarr; Aside: Complex Numbers</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/python/venv.rst.txt"
+      <li><a href="../_sources/task_1/extension.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -137,15 +161,15 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../task_1.html" title="Task 1: Fractals"
+          <a href="complex_numbers.html" title="Aside: Complex Numbers"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="packaging.html" title="Python Packaging"
+          <a href="main_task.html" title="Task 1"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="../python.html" >Python</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Virtual Environments</a></li> 
+          <li class="nav-item nav-item-1"><a href="../task_1.html" >Task 1: Fractals</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Make an animation!</a></li> 
       </ul>
     </div>
     </div>

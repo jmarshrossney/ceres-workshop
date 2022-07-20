@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Workshop Outline &#8212; CEReS Workshop 0.1.0 documentation</title>
+    <title>Task 1: Fractals &#8212; CEReS Workshop 0.1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
@@ -37,7 +37,8 @@
 
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting Started" href="getting_started.html" /> 
+    <link rel="next" title="Getting Started" href="task_1/getting_started.html" />
+    <link rel="prev" title="Virtual Environments" href="python/venv.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -49,11 +50,14 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="getting_started.html" title="Getting Started"
+          <a href="task_1/getting_started.html" title="Getting Started"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
-    <li><a href="#">CEReS Workshop</a> &#187;</li>
+        <li class="right" >
+          <a href="python/venv.html" title="Virtual Environments"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">CEReS Workshop</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href="">Workshop Outline</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Task 1: Fractals</a></li> 
       </ul>
     </div>
     </div>
@@ -64,28 +68,33 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="workshop-outline">
-<h1>Workshop Outline<a class="headerlink" href="#workshop-outline" title="Permalink to this heading">¶</a></h1>
-<p>CEReS Workshop on Python and Machine Learning, 1st September 2022.</p>
+  <img alt="../assets/dendrite.png" src="../assets/dendrite.png" />
+<section id="task-1-fractals">
+<h1>Task 1: Fractals<a class="headerlink" href="#task-1-fractals" title="Permalink to this heading">¶</a></h1>
+<p>Fractals are really cool.
+In this task you will make some visualisations of some well-known fractals such as the one above.</p>
+<p>This is meant to be fun, and perhaps even pique your interest in the maths behind these amazing patterns, but the main aim here is to become familiar with the structure of a Python project, some common design patterns, and some key developer tools. There is no need to care about the maths unless you really want to!</p>
+<p>Remember, you can bring up the documentation for any Python object using <code class="docutils literal notranslate"><span class="pre">help(object)</span></code> or, if you’re using IPython, just <code class="docutils literal notranslate"><span class="pre">object?</span></code>.</p>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git.html">Git &amp; GitHub</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python.html">Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="python/packaging.html">Python Packaging</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python/venv.html">Virtual Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="task_1/getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="task_1/getting_started.html#create-a-working-branch">Create a working branch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/getting_started.html#get-the-code-running">Get the code running</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="task_1.html">Task 1: Fractals</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="task_1/getting_started.html">Getting Started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html">Task 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/extension.html">Make an animation!</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/extension.html#extension-task">Extension task</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/complex_numbers.html">Aside: Complex Numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/grading.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="task_1/main_task.html">Task 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#fix-the-bugs">Fix the bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#open-a-pull-request">Open a pull request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#get-organised">Get Organised</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#create-a-package">Create a package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#catch-bad-inputs">Catch bad inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#type-annotations">Type annotations</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="task_1/extension.html">Make an animation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="task_1/extension.html#extension-task">Extension task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="task_1/complex_numbers.html">Aside: Complex Numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="task_1/grading.html">Tests</a></li>
 </ul>
 </div>
 </section>
@@ -97,15 +106,20 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="python/venv.html"
+                          title="Previous page">&larr; Virtual Environments</a></p>
+  </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="getting_started.html"
+    <p class="topless"><a href="task_1/getting_started.html"
                           title="Next page">&rarr; Getting Started</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/index.rst.txt"
+      <li><a href="_sources/task_1.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -149,11 +163,14 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="getting_started.html" title="Getting Started"
+          <a href="task_1/getting_started.html" title="Getting Started"
              >next</a> &nbsp; &nbsp;</li>
-    <li><a href="#">CEReS Workshop</a> &#187;</li>
+        <li class="right" >
+          <a href="python/venv.html" title="Virtual Environments"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">CEReS Workshop</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href="">Workshop Outline</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Task 1: Fractals</a></li> 
       </ul>
     </div>
     </div>
