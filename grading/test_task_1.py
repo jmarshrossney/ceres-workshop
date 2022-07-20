@@ -5,10 +5,11 @@ import random
 import string
 
 import pytest
+import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.cm import get_cmap
 
-from .utils import verbose, check_import, check_file, check_dir, temp_dir
+from .utils import verbose, check_import, check_file, check_dir, temp_dir, REPO_ROOT
 
 
 @verbose
@@ -239,9 +240,28 @@ def test_plot_scripts():
         )
         check_file(julia_output)
 
+
 @verbose
-def test_notebook():
+def test_no_plots_or_gifs():
     """
-    To do
+    Checks that plots and gifs aren't being uploaded to GitHub.
+
+    This checks the package directory `mandelbrot` for any image files.
+    Specifically, it checks for files with any extension corresponding
+    to a filetype supported by ``plt.savefig``, as well as ``.gif`` files.
+
+    You can upload larger files such as images to GitHub, but care should
+    be taken not to over-do it. An appropriate place to upload images is
+    in an `assets` directory in the root of the repository, though the
+    most important thing is to avoid uploading extra rubbish along with
+    the source code.
     """
-    assert True
+    package_dir = ROOT_DIR / "task-1" / "mandelbrot"
+    assert package_dir.is_dir(), f"`{package_dir}` is not a directory"
+
+    matplotlib_supported_filetypes = list(
+        plt.gcf().canvas.get_supported_filetypes().keys()
+    )
+    for suffix in matplotlib_supported_filetypes + ["gif"]:
+        files = package_dir.rglob(f"*.{suffix}")
+        assert not files, f".{suffix} file(s) found in `{package_dir}`"

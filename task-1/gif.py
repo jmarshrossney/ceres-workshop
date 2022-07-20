@@ -12,7 +12,8 @@ def make_gif(images: list[Image.Image], output: str, duration: int) -> None:
         images:
             A list of PIL Images
         output:
-            The name of or path to the output GIF file
+            The name of or path to the output GIF file, including
+            a ``.gif`` extension
         duration:
             The duration of each frame of the GIF, in milliseconds
     """
