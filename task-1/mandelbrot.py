@@ -140,4 +140,4 @@ save =False
 
 mandelbrot=Mandelbrot(centre,extent,resolution)
 fig=mandelbrot.get_figure(cmap)
-plt.show()
+#plt.show()

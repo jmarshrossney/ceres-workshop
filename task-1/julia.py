@@ -88,4 +88,4 @@ cmap = "viridis_r"
 
 julia = Julia(c_value, centre, extent, resolution)
 fig = julia.get_figure(cmap)
-plt.show()
+#plt.show()

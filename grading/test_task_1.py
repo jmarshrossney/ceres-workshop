@@ -38,7 +38,7 @@ def test_module_hierarchy():
         │   └── mandelbrot.py
         ├── tests
         │   ├── __init__.py
-        │   └── test_quadratic_map.py
+        │   └── test_utils.py
         └── utils.py
     """
     assert check_dir("mandelbrot")
@@ -47,7 +47,7 @@ def test_module_hierarchy():
     assert check_file("mandelbrot", "scripts", "julia.py")
     assert check_file("mandelbrot", "scripts", "mandelbrot.py")
     assert check_dir("mandelbrot", "tests")
-    assert check_file("mandelbrot", "tests", "test_quadratic_map.py")
+    assert check_file("mandelbrot", "tests", "test_utils.py")
     assert check_file("mandelbrot", "utils.py")
 
 
@@ -63,7 +63,7 @@ def test_import_modules():
         - `mandelbrot.scripts.mandelbrot`
         - `mandelbrot.scripts.julia`
         - `mandelbrot.tests`
-        - `mandelbrot.tests.test_quadratic_map`
+        - `mandelbrot.tests.test_utils`
     """
     check_import("mandelbrot")
     check_import("mandelbrot.fractals")
@@ -72,17 +72,19 @@ def test_import_modules():
     check_import("mandelbrot.scripts.mandelbrot")
     check_import("mandelbrot.scripts.julia")
     check_import("mandelbrot.tests")
-    check_import("mandelbrot.tests.test_quadratic_map")
+    check_import("mandelbrot.tests.test_utils")
 
 
 @verbose
-def test_quadratic_map_():
+def test_utils():
     """
-    Runs `mandelbrot.tests.test_quadratic_map:test_quadratic_map`.
+    Runs the tests in `mandelbrot.tests.test_utils`.
     """
-    from mandelbrot.tests.test_quadratic_map import test_quadratic_map
+    from mandelbrot.tests.test_utils import test_complex_grid, test_quadratic_map, test_get_pixel
 
+    test_complex_grid()
     test_quadratic_map()
+    test_get_pixel()
 
 
 @verbose
