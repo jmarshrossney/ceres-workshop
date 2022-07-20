@@ -25,12 +25,12 @@ class Julia:
             pixels will be the square of ``resolution``
     """
 
-    def __init__(self,c_value:complex,centre:complex,extent:float,resolution:int):
+    def __init__(self,c_value:complex,centre:complex,extent:float,resolution:int) -> None:
         self.grid = complex_grid(centre, extent, resolution)
         self.pixels = np.vectorize(self.get_pixel)(c_value, self.grid)
 
     @staticmethod
-    def get_pixel(c, z0):  # TODO: add type annotations
+    def get_pixel(c:complex, z0: complex) -> int:
         """
         Computes a single 8-bit pixel.
 
@@ -45,7 +45,7 @@ class Julia:
             if abs(z) >= 2:break
         return n
 
-    def get_figure(self,cmap:str)->plt.Figure:
+    def get_figure(self,cmap:str="viridis")->plt.Figure:
         """
         Creates a matplotlib Figure visualising the Mandelbrot set.
 
@@ -72,7 +72,7 @@ class Julia:
 
         return fig
 
-    def get_image(self, cmap: str) -> Image.Image:
+    def get_image(self, cmap: str="viridis") -> Image.Image:
         """
         Creates a PIL (pillow) Image visualising the Mandelbrot set
         """

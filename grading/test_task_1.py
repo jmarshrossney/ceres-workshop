@@ -1,24 +1,14 @@
 """Grades task 1."""
 import inspect
 import pathlib
+import random
+import string
 
 import pytest
 from matplotlib.figure import Figure
+from matplotlib.cm import get_cmap
 
 from .utils import verbose, check_import, check_file, check_dir, temp_dir
-
-
-@verbose
-def test_import_mandelbrot():
-    """
-    Attempts to import `mandelbrot`.
-
-    This requires installing task 1 as a package. The recommended way to
-    achieve this when using conda as a package manager is to
-        - First, run `flit init` to create a `pyproject.toml` file
-        - Next,run `flit install --symlink` to install into the conda env
-    """
-    check_import("mandelbrot")
 
 
 @verbose
@@ -52,7 +42,21 @@ def test_module_hierarchy():
 
 
 @verbose
-def test_import_modules():
+def test_import_mandelbrot():
+    """
+    Attempts to import `mandelbrot`.
+
+    For this to work we need to install `mandelbrot` as a package.
+
+    To make `mandelbrot` installable, it is recommended to create a
+    `pyproject.toml` file in the `task-1` directory. This can be acheived
+    using the `flit` package. Consult the workshop notes for details!
+    """
+    check_import("mandelbrot")
+
+
+@verbose
+def test_import_all_modules():
     """
     Attempts to import the following modules and submodules:
 
@@ -80,7 +84,11 @@ def test_utils():
     """
     Runs the tests in `mandelbrot.tests.test_utils`.
     """
-    from mandelbrot.tests.test_utils import test_complex_grid, test_quadratic_map, test_get_pixel
+    from mandelbrot.tests.test_utils import (
+        test_complex_grid,
+        test_quadratic_map,
+        test_get_pixel,
+    )
 
     test_complex_grid()
     test_quadratic_map()
@@ -97,11 +105,143 @@ def test_too_many_pixels():
     """
     from mandelbrot.utils import complex_grid, MAX_PIXELS
 
-    assert MAX_PIXELS == int(1e6), "`MAX_PIXELS` should not be changed prior to testing"
+    assert MAX_PIXELS == int(1e6), "Please set `MAX_PIXELS = int(1e6)`"
 
     # Test that it works normally
     _ = complex_grid(complex(0, 0), 1, resolution=1000)
 
     with pytest.raises(AssertionError):
         _ = complex_grid(complex(0, 0), 1, resolution=10000)
+
+    with pytest.raises(AssertionError):
         _ = complex_grid(complex(0, 0), 1, resolution=1001)  # one above max
+
+
+@verbose
+def test_script_annotations():
+    """
+    Inspects the signatures of `plot` functions for type annotations.
+
+    Specifically, inspects the signatures of the following functions:
+
+        - `mandelbrot.scripts.mandelbrot.plot`
+        - `mandelbrot.scripts.julia.plot`
+
+    And checks that the type annotations are
+
+        centre: complex
+        extent: float
+        resolution: int
+        cmap: str
+        output: str
+        c_value: complex (julia only)
+
+        return value: None
+    """
+    from mandelbrot.scripts.mandelbrot import plot as mandelbrot_plot
+    from mandelbrot.scripts.julia import plot as julia_plot
+
+    for plot in (mandelbrot_plot, julia_plot):
+
+        signature = inspect.signature(plot)
+        parameters = signature.parameters
+        assert all(
+            [param.annotation is not inspect._empty for param in parameters.values()]
+        ), f"One or more of the arguments to `{plot.__module__}.{plot.__name__}` does not have a type annotation"
+
+        assert parameters["centre"].annotation is complex
+        assert parameters["extent"].annotation is float
+        assert parameters["resolution"].annotation is int
+        assert parameters["cmap"].annotation is str
+        assert parameters["output"].annotation is str
+        if "c_value" in parameters:
+            assert parameters["c_value"].annotation is complex
+
+        assert (
+            signature.return_value is not inspect._empty
+        ), "Don't forget to annotate the return value!"
+        assert signature.return_value is None, "Return value should be `None`"
+
+
+@verbose
+def test_default_cmap():
+    """
+    Checks that the `plot` functions have a default colourmap.
+
+    The functions
+
+        - `mandelbrot.scripts.mandelbrot.plot`
+        - `mandelbrot.scripts.julia.plot`
+
+    should take a `cmap` argument, which is a string corresponding to a
+    matplotlib colourmap. This argument should have a default value so that
+    we don't have to specify the colourmap every time.
+    """
+    from mandelbrot.scripts.mandelbrot import plot as mandelbrot_plot
+    from mandelbrot.scripts.julia import plot as julia_plot
+
+    for plot in (mandelbrot_plot, julia_plot):
+
+        signature = inspect.signature(plot)
+        parameters = signature.parameters
+        assert (
+            parameters["cmap"].default is not inspect._empty
+        ), "The `cmap` argument in `{plot.__module__}.{plot.__name__}` doesn't have a default value"
+
+        # Check it's a valid cmap
+        get_cmap(parameters["cmap"].default)
+
+
+@verbose
+def test_plot_scripts():
+    """
+    Runs plotting scripts and checks for a saved PNG image.
+
+    The functions
+
+        - `mandelbrot.scripts.mandelbrot.plot`
+        - `mandelbrot.scripts.julia.plot`
+
+    are run the argument `output` set to a random string + '.png', and
+    with a very low resolution to speed things up. The default `cmap`
+    is used.
+    """
+    from mandelbrot.scripts.mandelbrot import plot as mandelbrot_plot
+    from mandelbrot.scripts.julia import plot as julia_plot
+
+    centre = complex(0, 0)
+    extent = 1
+    resolution = 10
+    c_value = complex(0, -1)
+
+    mandelbrot_output = "".join(
+        random.choice(string.ascii_lowercase) for _ in range(5)
+    ) = ".png"
+    julia_output = "".join(
+        random.choice(string.ascii_lowercase) for _ in range(5)
+    ) = ".png"
+
+    with temp_dir():
+        mandelbrot_plot(
+            centre=centre,
+            extent=extent,
+            resolution=resolution,
+            output=mandelbrot_output,
+        )
+        check_file(mandelbrot_output)
+
+        julia_plot(
+            c_value=c_value,
+            centre=centre,
+            extent=extent,
+            resolution=resolution,
+            output=julia_output,
+        )
+        check_file(julia_output)
+
+@verbose
+def test_notebook():
+    """
+    To do
+    """
+    assert True

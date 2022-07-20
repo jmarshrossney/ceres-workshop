@@ -76,12 +76,12 @@ class Mandelbrot:
             pixels will be the square of ``resolution``
     """
 
-    def __init__(self, centre, extent, resolution):  # TODO: add type annotations
+    def __init__(self, centre: complex, extent:float, resolution:int) -> None:
         self.grid=complex_grid(centre,extent,resolution)
         self.pixels=np.vectorize(self.get_pixel)(self.grid,0)
 
     @staticmethod
-    def get_pixel(c, z0):  # TODO: add type annotations
+    def get_pixel(c:complex, z0 : complex) -> int:
         """
         Computes a single 8-bit pixel.
 
@@ -96,7 +96,7 @@ class Mandelbrot:
             if abs(z) >= 2:break
         return n
 
-    def get_figure(self,cmap:str)->plt.Figure:
+    def get_figure(self,cmap:str="viridis")->plt.Figure:
         """
         Creates a matplotlib Figure visualising the Mandelbrot set.
 
@@ -105,9 +105,6 @@ class Mandelbrot:
                 The colour map used to colour pixels. For available colours
                 see matplotlib documentation on colourmaps
         """
-        # TODO: it would be nice if we could fall back on a default value
-        # for the colourmap if no cmap argument is provided
-
         grid_min, grid_max= self.grid.min(),self.grid.max()
         fig, ax = plt.subplots()
 
@@ -116,6 +113,7 @@ class Mandelbrot:
         extent=(grid_min.real,grid_max.real,grid_min.imag,grid_max.imag),
             origin="lower")
 
+        # type(self).__name__ is the name of the class!
         ax.set_title(f"{type(self).__name__} Set")
         ax.set_xlabel("Real axis")
         ax.set_ylabel("Imaginary axis")
@@ -123,7 +121,7 @@ class Mandelbrot:
 
         return fig
 
-    def get_image(self, cmap: str) -> Image.Image:
+    def get_image(self, cmap: str = "viridis") -> Image.Image:
         """
         Creates a PIL (pillow) Image visualising the Mandelbrot set
         """
@@ -136,7 +134,6 @@ centre= complex(-0.75,0)
 extent= 2.5
 resolution= 500
 cmap= "viridis"
-save =False
 
 mandelbrot=Mandelbrot(centre,extent,resolution)
 fig=mandelbrot.get_figure(cmap)
