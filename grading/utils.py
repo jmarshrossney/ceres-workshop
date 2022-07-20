@@ -1,4 +1,5 @@
 from functools import wraps
+import os
 import pathlib
 import shutil
 import subprocess
@@ -34,6 +35,8 @@ def verbose(func):
 
             print()
             print(sp + "*** Passed! ***")
+
+        return result
 
     return wrapper
 

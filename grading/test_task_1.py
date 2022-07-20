@@ -3,7 +3,7 @@ Runs a set of tests against task 1, giving the user a score.
 
 These tests can be run locally by executing
 
-.. code_block:: bash
+.. code-block:: sh
 
     pytest grading/test_task_1.py -s --tb=no
 
@@ -12,16 +12,12 @@ in the root of the repository.
 They should also run upon pushes to the ``task-1`` and ``main`` branches.
 """
 import inspect
-import pathlib
 import random
 import string
 
 import pytest
-import matplotlib.pyplot as plt
-from matplotlib.figure import Figure
-from matplotlib.cm import get_cmap
 
-from .utils import verbose, check_import, check_file, check_dir, temp_dir, REPO_ROOT
+from utils import verbose, check_import, check_file, check_dir, temp_dir, REPO_ROOT
 
 
 @verbose
@@ -189,6 +185,8 @@ def test_default_cmap():
     matplotlib colourmap. This argument should have a default value so that
     we don't have to specify the colourmap every time.
     """
+    from matplotlib.cm import get_cmap
+
     from mandelbrot.scripts.mandelbrot import plot as mandelbrot_plot
     from mandelbrot.scripts.julia import plot as julia_plot
 
@@ -226,12 +224,12 @@ def test_plot_scripts():
     resolution = 10
     c_value = complex(0, -1)
 
-    mandelbrot_output = "".join(
-        random.choice(string.ascii_lowercase) for _ in range(5)
-    ) = ".png"
-    julia_output = "".join(
-        random.choice(string.ascii_lowercase) for _ in range(5)
-    ) = ".png"
+    mandelbrot_output = (
+        "".join([random.choice(string.ascii_lowercase) for _ in range(5)]) + ".png"
+    )
+    julia_output = (
+        "".join([random.choice(string.ascii_lowercase) for _ in range(5)]) + ".png"
+    )
 
     with temp_dir():
         mandelbrot_plot(
@@ -267,7 +265,9 @@ def test_no_plots_or_gifs():
     most important thing is to avoid uploading extra rubbish along with
     the source code.
     """
-    package_dir = ROOT_DIR / "task-1" / "mandelbrot"
+    import matplotlib.pyplot as plt
+
+    package_dir = REPO_ROOT / "task-1" / "mandelbrot"
     assert package_dir.is_dir(), f"`{package_dir}` is not a directory"
 
     matplotlib_supported_filetypes = list(

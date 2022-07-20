@@ -1,0 +1,9 @@
+======
+Python
+======
+
+
+.. toctree::
+    :glob:
+
+    python/*
