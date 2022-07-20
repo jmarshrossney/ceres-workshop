@@ -1,4 +1,4 @@
-!()[../assets/dendrite.png)
+.. image:: ../assets/dendrite.png
 
 =================
 Task 1: Fractals!
