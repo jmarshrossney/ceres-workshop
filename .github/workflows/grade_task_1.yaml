@@ -22,7 +22,7 @@ jobs:
         with:
             python-version: 3.9
             mamba-version: "*"
-            environment-file: tasl-1/environment.yml
+            environment-file: task-1/environment.yml
       
       - name: Install Package
         shell: bash -l {0}
