@@ -83,8 +83,8 @@
 <dd><p>Checks that the <cite>plot</cite> functions have a default colourmap.</p>
 <p>The functions</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mandelbrot.scripts.mandelbrot.plot</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mandelbrot.scripts.julia.plot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_1.scripts.mandelbrot.plot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_1.scripts.julia.plot</span></code></p></li>
 </ul>
 <p>should take a <code class="docutils literal notranslate"><span class="pre">cmap</span></code> argument, which is a string corresponding to a
 matplotlib colourmap. This argument should have a default value so that
@@ -96,23 +96,23 @@ we don’t have to specify the colourmap every time.</p>
 <span class="sig-prename descclassname"><span class="pre">test_task_1.</span></span><span class="sig-name descname"><span class="pre">test_import_all_modules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_task_1.test_import_all_modules" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attempts to import the following modules and submodules:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mandelbrot</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mandelbrot.fractals</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mandelbrot.utils</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mandelbrot.scripts</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mandelbrot.scripts.mandelbrot</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mandelbrot.scripts.julia</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mandelbrot.tests</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mandelbrot.tests.test_utils</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_1.fractals</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_1.utils</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_1.scripts</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_1.scripts.mandelbrot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_1.scripts.julia</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_1.tests</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_1.tests.test_utils</span></code></p></li>
 </ul>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="test_task_1.test_import_mandelbrot">
-<span class="sig-prename descclassname"><span class="pre">test_task_1.</span></span><span class="sig-name descname"><span class="pre">test_import_mandelbrot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_task_1.test_import_mandelbrot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attempts to import <cite>mandelbrot</cite> module.</p>
-<p>For this to work we need to install <code class="docutils literal notranslate"><span class="pre">mandelbrot</span></code> as a package.</p>
-<p>To make <code class="docutils literal notranslate"><span class="pre">mandelbrot</span></code> installable, it is recommended to create a
+<dt class="sig sig-object py" id="test_task_1.test_import_task_1">
+<span class="sig-prename descclassname"><span class="pre">test_task_1.</span></span><span class="sig-name descname"><span class="pre">test_import_task_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_task_1.test_import_task_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to import <cite>task_1</cite> module.</p>
+<p>For this to work we need to install <code class="docutils literal notranslate"><span class="pre">task_1</span></code> as a package.</p>
+<p>To make <code class="docutils literal notranslate"><span class="pre">task_1</span></code> installable, it is recommended to create a
 <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file in the <cite>task-1</cite> directory. This can be acheived
 using the Flit package. Consult the workshop notes for details!</p>
 </dd></dl>
@@ -123,14 +123,14 @@ using the Flit package. Consult the workshop notes for details!</p>
 <dd><p>Checks that the requested module hierarchy is adhered to.</p>
 <p>Hint: the requested hierarchy is</p>
 <blockquote>
-<div><p>mandelbrot
+<div><p>task_1
 ├── fractals.py
 ├── __init__.py
 ├── README.rst
 ├── scripts
 │   ├── __init__.py
 │   ├── julia.py
-│   └── mandelbrot.py
+│   └── task_1.py
 ├── tests
 │   ├── __init__.py
 │   └── test_utils.py
@@ -142,7 +142,7 @@ using the Flit package. Consult the workshop notes for details!</p>
 <dt class="sig sig-object py" id="test_task_1.test_no_plots_or_gifs">
 <span class="sig-prename descclassname"><span class="pre">test_task_1.</span></span><span class="sig-name descname"><span class="pre">test_no_plots_or_gifs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_task_1.test_no_plots_or_gifs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks that plots and gifs aren’t being uploaded to GitHub.</p>
-<p>This checks the package directory <code class="docutils literal notranslate"><span class="pre">mandelbrot</span></code> for any image files.
+<p>This checks the package directory <code class="docutils literal notranslate"><span class="pre">task_1</span></code> for any image files.
 Specifically, it checks for files with any extension corresponding
 to a filetype supported by <code class="docutils literal notranslate"><span class="pre">plt.savefig</span></code>, as well as <code class="docutils literal notranslate"><span class="pre">.gif</span></code> files.</p>
 <p>You can upload larger files such as images to GitHub, but care should
@@ -158,8 +158,8 @@ the source code.</p>
 <dd><p>Runs plotting scripts and checks for a saved PNG image.</p>
 <p>The functions</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mandelbrot.scripts.mandelbrot.plot</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mandelbrot.scripts.julia.plot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_1.scripts.mandelbrot.plot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_1.scripts.julia.plot</span></code></p></li>
 </ul>
 <p>are run the argument <code class="docutils literal notranslate"><span class="pre">output</span></code> set to a random string + <code class="docutils literal notranslate"><span class="pre">.png</span></code>, and
 with a very low resolution to speed things up. The default <code class="docutils literal notranslate"><span class="pre">cmap</span></code>
@@ -172,8 +172,8 @@ is used.</p>
 <dd><p>Inspects the signatures of <cite>plot</cite> functions for type annotations.</p>
 <p>Specifically, inspects the signatures of the following functions:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mandelbrot.scripts.mandelbrot.plot</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mandelbrot.scripts.julia.plot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_1.scripts.mandelbrot.plot</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_1.scripts.julia.plot</span></code></p></li>
 </ul>
 <p>And checks that the type annotations are</p>
 <ul class="simple">
@@ -198,7 +198,7 @@ error message.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="test_task_1.test_utils">
 <span class="sig-prename descclassname"><span class="pre">test_task_1.</span></span><span class="sig-name descname"><span class="pre">test_utils</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_task_1.test_utils" title="Permalink to this definition">¶</a></dt>
-<dd><p>Runs the tests in <cite>mandelbrot.tests.test_utils</cite>.</p>
+<dd><p>Runs the tests in <cite>task_1.tests.test_utils</cite>.</p>
 </dd></dl>
 
 </section>
