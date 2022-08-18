@@ -27,6 +27,8 @@ def test_module_hierarchy():
 
     Hint: the requested hierarchy is
 
+    .. code-block:: sh
+
         task_1
         ├── fractals.py
         ├── __init__.py
