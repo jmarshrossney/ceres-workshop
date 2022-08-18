@@ -45,7 +45,7 @@ class Julia:
             if abs(z) >= 2:break
         return n
 
-    def get_figure(self,cmap:str="viridis")->plt.Figure:
+    def get_figure(self,cmap:str)->plt.Figure:
         """
         Creates a matplotlib Figure visualising the Mandelbrot set.
 
@@ -65,14 +65,14 @@ class Julia:
         extent=(grid_min.real,grid_max.real,grid_min.imag,grid_max.imag),
             origin="lower")
 
-        ax.set_title(f"{type(self).__name__} Set")
+        ax.set_title("Julia Set")
         ax.set_xlabel("Real axis")
         ax.set_ylabel("Imaginary axis")
         fig.tight_layout()
 
         return fig
 
-    def get_image(self, cmap: str="viridis") -> Image.Image:
+    def get_image(self, cmap: str) -> Image.Image:
         """
         Creates a PIL (pillow) Image visualising the Mandelbrot set
         """

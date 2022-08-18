@@ -27,41 +27,41 @@ def test_module_hierarchy():
 
     Hint: the requested hierarchy is
 
-        mandelbrot
+        task_1
         ├── fractals.py
         ├── __init__.py
         ├── README.rst
         ├── scripts
         │   ├── __init__.py
         │   ├── julia.py
-        │   └── mandelbrot.py
+        │   └── task_1.py
         ├── tests
         │   ├── __init__.py
         │   └── test_utils.py
         └── utils.py
     """
-    assert check_dir("mandelbrot")
-    assert check_file("mandelbrot", "fractals.py")
-    assert check_dir("mandelbrot", "scripts")
-    assert check_file("mandelbrot", "scripts", "julia.py")
-    assert check_file("mandelbrot", "scripts", "mandelbrot.py")
-    assert check_dir("mandelbrot", "tests")
-    assert check_file("mandelbrot", "tests", "test_utils.py")
-    assert check_file("mandelbrot", "utils.py")
+    assert check_dir("task_1")
+    assert check_file("task_1", "fractals.py")
+    assert check_dir("task_1", "scripts")
+    assert check_file("task_1", "scripts", "julia.py")
+    assert check_file("task_1", "scripts", "mandelbrot.py")
+    assert check_dir("task_1", "tests")
+    assert check_file("task_1", "tests", "test_utils.py")
+    assert check_file("task_1", "utils.py")
 
 
 @verbose
-def test_import_mandelbrot():
+def test_import_task_1():
     """
-    Attempts to import `mandelbrot` module.
+    Attempts to import `task_1` module.
 
-    For this to work we need to install ``mandelbrot`` as a package.
+    For this to work we need to install ``task_1`` as a package.
 
-    To make ``mandelbrot`` installable, it is recommended to create a
+    To make ``task_1`` installable, it is recommended to create a
     ``pyproject.toml`` file in the `task-1` directory. This can be acheived
     using the Flit package. Consult the workshop notes for details!
     """
-    check_import("mandelbrot")
+    check_import("task_1")
 
 
 @verbose
@@ -69,31 +69,31 @@ def test_import_all_modules():
     """
     Attempts to import the following modules and submodules:
 
-    * ``mandelbrot``
-    * ``mandelbrot.fractals``
-    * ``mandelbrot.utils``
-    * ``mandelbrot.scripts``
-    * ``mandelbrot.scripts.mandelbrot``
-    * ``mandelbrot.scripts.julia``
-    * ``mandelbrot.tests``
-    * ``mandelbrot.tests.test_utils``
+    * ``task_1``
+    * ``task_1.fractals``
+    * ``task_1.utils``
+    * ``task_1.scripts``
+    * ``task_1.scripts.mandelbrot``
+    * ``task_1.scripts.julia``
+    * ``task_1.tests``
+    * ``task_1.tests.test_utils``
     """
-    check_import("mandelbrot")
-    check_import("mandelbrot.fractals")
-    check_import("mandelbrot.utils")
-    check_import("mandelbrot.scripts")
-    check_import("mandelbrot.scripts.mandelbrot")
-    check_import("mandelbrot.scripts.julia")
-    check_import("mandelbrot.tests")
-    check_import("mandelbrot.tests.test_utils")
+    check_import("task_1")
+    check_import("task_1.fractals")
+    check_import("task_1.utils")
+    check_import("task_1.scripts")
+    check_import("task_1.scripts.mandelbrot")
+    check_import("task_1.scripts.julia")
+    check_import("task_1.tests")
+    check_import("task_1.tests.test_utils")
 
 
 @verbose
 def test_utils():
     """
-    Runs the tests in `mandelbrot.tests.test_utils`.
+    Runs the tests in `task_1.tests.test_utils`.
     """
-    from mandelbrot.tests.test_utils import (
+    from task_1.tests.test_utils import (
         test_complex_grid,
         test_quadratic_map,
         test_get_pixel,
@@ -112,7 +112,7 @@ def test_too_many_pixels():
     This should fail with an ``AssertionError``, and show a helpful
     error message.
     """
-    from mandelbrot.utils import complex_grid, MAX_PIXELS
+    from task_1.utils import complex_grid, MAX_PIXELS
 
     assert MAX_PIXELS == int(1e6), "Please set `MAX_PIXELS = int(1e6)`"
 
@@ -133,8 +133,8 @@ def test_script_annotations():
 
     Specifically, inspects the signatures of the following functions:
 
-    * ``mandelbrot.scripts.mandelbrot.plot``
-    * ``mandelbrot.scripts.julia.plot``
+    * ``task_1.scripts.mandelbrot.plot``
+    * ``task_1.scripts.julia.plot``
 
     And checks that the type annotations are
 
@@ -146,8 +146,8 @@ def test_script_annotations():
     * ``c_value: complex`` (julia only)
     * Return value: ``None``
     """
-    from mandelbrot.scripts.mandelbrot import plot as mandelbrot_plot
-    from mandelbrot.scripts.julia import plot as julia_plot
+    from task_1.scripts.mandelbrot import plot as mandelbrot_plot
+    from task_1.scripts.julia import plot as julia_plot
 
     for plot in (mandelbrot_plot, julia_plot):
 
@@ -178,8 +178,8 @@ def test_default_cmap():
 
     The functions
 
-    * ``mandelbrot.scripts.mandelbrot.plot``
-    * ``mandelbrot.scripts.julia.plot``
+    * ``task_1.scripts.mandelbrot.plot``
+    * ``task_1.scripts.julia.plot``
 
     should take a ``cmap`` argument, which is a string corresponding to a
     matplotlib colourmap. This argument should have a default value so that
@@ -187,8 +187,8 @@ def test_default_cmap():
     """
     from matplotlib.cm import get_cmap
 
-    from mandelbrot.scripts.mandelbrot import plot as mandelbrot_plot
-    from mandelbrot.scripts.julia import plot as julia_plot
+    from task_1.scripts.mandelbrot import plot as mandelbrot_plot
+    from task_1.scripts.julia import plot as julia_plot
 
     for plot in (mandelbrot_plot, julia_plot):
 
@@ -209,22 +209,22 @@ def test_plot_scripts():
 
     The functions
 
-    * ``mandelbrot.scripts.mandelbrot.plot``
-    * ``mandelbrot.scripts.julia.plot``
+    * ``task_1.scripts.mandelbrot.plot``
+    * ``task_1.scripts.julia.plot``
 
     are run the argument ``output`` set to a random string + ``.png``, and
     with a very low resolution to speed things up. The default ``cmap``
     is used.
     """
-    from mandelbrot.scripts.mandelbrot import plot as mandelbrot_plot
-    from mandelbrot.scripts.julia import plot as julia_plot
+    from task_1.scripts.mandelbrot import plot as mandelbrot_plot
+    from task_1.scripts.julia import plot as julia_plot
 
     centre = complex(0, 0)
     extent = 1
     resolution = 10
     c_value = complex(0, -1)
 
-    mandelbrot_output = (
+    task_1_output = (
         "".join([random.choice(string.ascii_lowercase) for _ in range(5)]) + ".png"
     )
     julia_output = (
@@ -232,7 +232,7 @@ def test_plot_scripts():
     )
 
     with temp_dir():
-        mandelbrot_plot(
+        task_1_plot(
             centre=centre,
             extent=extent,
             resolution=resolution,
@@ -255,7 +255,7 @@ def test_no_plots_or_gifs():
     """
     Checks that plots and gifs aren't being uploaded to GitHub.
 
-    This checks the package directory ``mandelbrot`` for any image files.
+    This checks the package directory ``task_1`` for any image files.
     Specifically, it checks for files with any extension corresponding
     to a filetype supported by ``plt.savefig``, as well as ``.gif`` files.
 
@@ -267,7 +267,7 @@ def test_no_plots_or_gifs():
     """
     import matplotlib.pyplot as plt
 
-    package_dir = REPO_ROOT / "task-1" / "mandelbrot"
+    package_dir = REPO_ROOT / "task-1" / "task_1"
     assert package_dir.is_dir(), f"`{package_dir}` is not a directory"
 
     matplotlib_supported_filetypes = list(
