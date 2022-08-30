@@ -8,8 +8,10 @@ CEReS Workshop on Python and Machine Learning, 1st September 2022.
     :maxdepth: 2
     :caption: Contents
 
+    introduction
     getting_started
-    git
-    python
     task_1
+    task_2
+    task_3
+    resources
 
