@@ -2,14 +2,14 @@
 Extension: Competition time!
 ============================
 
-TODO: where to upload best model.
+Let's have a little competition: who can build the best classifier using PyTorch?
 
 To ensure that everyone is using the data training, validation and test data, you should load the datamodule as follows:
 
 .. code-block:: python
 
     datamodule = ShipsDataModule(
-        batch_size=whatever_you_like,
+        batch_size=...,  # whatever you like
         train_frac=0.75,
         random_split_seed=123456789,
     )

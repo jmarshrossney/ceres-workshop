@@ -50,7 +50,7 @@ By now the metrics you've been calculating should have painted a very clear pict
 It's time to fix that.
 
 However, before you dive into tuning hyperparameters, it's worth pausing to consider the data that we're feeding into the network.
-To be clear, the network receives batches of one-dimensional vectors, containing all :math:`3 * 80 * 80` pixel values in the image.
+To be clear, the network receives batches of one-dimensional vectors, containing all :math:`3 \times 80 \times 80` pixel values in the image.
 Each value is an integer between 0 and 255.
 
 Data standardisation or normalisation is an important part of many data pipelines.
@@ -62,7 +62,7 @@ You should do this in the third cell, where the inputs are extracted from ``RAW_
 Hyper-parameter optimisation
 ----------------------------
 
-The task now is simple: play around with hyperparameters until you either (a) are satisfied with the results, or (b) are too bored to continue.
+The task now is simple: play around with hyperparameters until you are either satisfied with the results or too bored to continue.
 
 If you're unsure where to start, try to answer the following questions:
 
@@ -75,6 +75,10 @@ We can discuss our findings as a group.
 
 Reproducibility
 ---------------
+
+.. admonition:: Question
+
+    Why is reproducibility important? What role do random number generators play in terms of reproducible computations?
 
 Scroll to the end of the notebook to the section called *Reproducibility check*.
 Your task is to modify the code so that the process of splitting the data and training a model is reproducible.

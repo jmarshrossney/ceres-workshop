@@ -2,13 +2,20 @@
 Extension Tasks
 ===============
 
---------------------------
+.. tip:: You may find it useful to check out `this repository <https://github.com/marshrossney/mandelbrot>`_ if you get stuck.
+
+                          
 Explore the Mandelbrot set
 --------------------------
 
 Install ``jupyterlab`` and ``ipywidgets`` into your conda environment.
 
-Create a subdirectory inside ``fractals`` called ``notebooks``.
+.. code-block::
+
+    conda install -c conda-forge jupyterlab ipywidgets
+
+
+Create a subdirectory inside ``task_2`` called ``notebooks``.
 Inside this directory, create a Jupyter notebook containing visualisations of the Mandelbrot or Julia sets that you particularly like, along with the parameters used to generate the image.
 Each cell can call the ``plot`` functions inside the scripts.
 
@@ -23,7 +30,7 @@ Make sure you include ``.gitignore`` an d the updated ``environment.yml`` file t
 
 Usually we would want to clear the notebook before doing this, but in this case we would like to be able to view the images in the notebook from our browser.
 
------------------------------
+
 Make the scripts configurable
 -----------------------------
 
@@ -39,19 +46,19 @@ The task is to extend these scripts so that they can be called directly from the
 inside the ``scripts`` directory. In the above, ``ARGS`` and ``OPTIONS`` represent a sequence of arguments and options that specify the midpoint, extent, resolution, colour-map and output file.
 
 **Hint:** The simplest way to do this is using ``sys.argv``, but this is the least best option.
-A better option is the ``argparse`` package, which is part of the Standard Library.
-However, there are much better parsers out there, e.g. ``click``.
+A better option is the `Argparse <https://docs.python.org/3/library/argparse.html>`_ package, which is part of the Standard Library.
+However, there are much better parsers out there, e.g. `Click <https://click.palletsprojects.com>`_.
 
 Finally, turn your script into an **entry point** by modifying the ``pyproject.toml`` file to include a ``[project.scripts]`` section.
 Name the entry point something easy to type, e.g. ``mandel``.
-You may need to refer to the `Flit documentation <https://flit.pypa.io/en/latest/index.html>`_.
+You may need to refer to the `Flit documentation <https://flit.pypa.io>`_.
 
 Now you should be able to run the scripts from any directory by running e.g. ``mandel ARGS OPTIONS``.
 
 If you're successful, why not make a CLI tool to visualise Julia sets too!
 
 
-------------------
+                  
 Make an animation!
 ------------------
 

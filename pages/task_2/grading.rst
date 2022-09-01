@@ -2,5 +2,5 @@
 Tests
 =====
 
-.. automodule:: test_task_1
+.. automodule:: test_task_2
    :members:

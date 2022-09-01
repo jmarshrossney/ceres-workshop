@@ -10,6 +10,8 @@ Once you have finished the task, you can merge your pull request with the ``main
 Go to the pull request on GitHub and hit the 'merge' button.
 You will probably want to 'squash' your commits into one.
 
+.. important:: Make sure you have *pushed* all of your local changes to the remote before merging the pull request!
+
 
 Pull updates to the local repo
 ------------------------------

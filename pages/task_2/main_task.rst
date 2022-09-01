@@ -5,10 +5,7 @@ Main Task
 Fix the bugs
 ------------
 
-.. admonition:: Before you start
-
-    Navigate to the directory ``tasks/fractals/fractals/``
-
+Navigate to the directory ``tasks/task_2/fractals/``
 On the last line of ``fractals.py`` there is a commented-out line with ``plt.show()``.
 Un-comment this and run the script with ``python fractals.py``.
 You should see a couple of rather boring figures appear which look nothing like fractals.
@@ -46,16 +43,13 @@ Commit your changes and push to Github.
 Open a pull request
 -------------------
 
-Now that things are actually working, let's be bold and state our intentions to merge our changes into the ``main`` branch.
-Github provides a nice way to do this called a 'pull request' (PR).
-
-Go to your repository on the Github website, and navigate to the ``task-1`` branch.
+Go to your repository on the Github website, and navigate to the ``task-2`` branch.
 
 Click to the 'Actions' tab.
 You should see a message that states *"Workflows aren't being run on this forked repository,"* and an option in green below *"I understand my workflows, go ahead and enable them."*
 **Click on this green button.**
 
-Now, in the 'Pull Requests' tab, create a PR to merge ``task-1`` into ``main``.
+Now, in the 'Pull Requests' tab, create a PR to merge ``task-2`` into ``main``.
 Give your PR a sensible title.
 
 .. important:: Do not merge the pull request!
@@ -92,10 +86,9 @@ Next, run
     flake8 .
 
 Flake8 doesn't seem to approve of the ``from utils import *`` statement! [#f1]_
-It's possible to tell ``flake8`` to ignore this, but let us instead be explicit about what we want to import.
-Go ahead and do this!
+Change the statement so that it explicitly imports the things that you actually need from ``utils``.
 
-Once you can run ``flake8 .`` in the ``fractals`` directory without any errors, commit your changes and push to GitHub.
+Once you can run ``flake8 .`` in the ``task_2`` directory without any errors, commit your changes and push to GitHub.
 With any luck you should find that the *Lint* stage of the workflow completes this time.
 
                             
@@ -119,6 +112,7 @@ Run
 Oh dear! We got more than we asked for - three plots instead of one!
 
 The reason this occurs is that when a module is imported, it is actually executed in (more or less) the same way as when it is run as a script.
+That is, the highlighted line below actually executes the contents of ``fractals.py``.
 
 .. code-block:: python
    :linenos:
@@ -134,12 +128,15 @@ The reason this occurs is that when a module is imported, it is actually execute
     from fractals import Mandelbrot
 
 
-The conventional solution to the above problem is wrap the lines of code which execute the script in the ``if __name__ == "__main__"`` clause.
+The conventional solution to the above problem is wrap the execution part of ``fractals.py`` in an ``if __name__ == "__main__"`` clause.
+This would mean that only function and class definitions would be imported with ``import fractals``, and the ``if __name__ == "__main__"`` part would be skipped, unless the module were to be run as ``python fractals.py``.
 However, in our case we want to *remove* the ability for ``fractals.py`` to function as a script, since that functionality is now served by the ``mandelbrot.py`` and ``julia.py`` scripts.
 
 Remove the lines at the bottom of ``fractals.py`` that create the figures.
 
 You should now find that running ``python mandelbrot.py`` and ``python julia.py`` work as expected, generating a single plot in both cases.
+
+Commit and push your changes to GitHub.
 
 
 Make use of OOP
@@ -167,6 +164,8 @@ Finally, ensure that the visualisations of the Julia set don't have 'Mandelbrot 
     Consider setting a `class or instance attribute <https://www.geeksforgeeks.org/class-instance-attributes-python/>`_.
     Another option is to just use the name of the class as the title.
 
+Commit and push your changes to GitHub.
+
 
 Catch bad inputs
 ----------------
@@ -188,15 +187,13 @@ Add an ``assert`` statement in the appropriate location so that if more pixels t
 
 .. hint:: The number of pixels is ``resolution ** 2``.
 
-.. seealso:: Handling user input: TODO
+Commit and push your changes to GitHub.
 
 
 Installing as a package
 -----------------------
 
-.. admonition:: Before you start
-
-    Make sure you are in the ``tasks/fractals`` directory, i.e. the one with the ``pyproject.toml`` file.
+.. attention:: Make sure you are in the ``tasks/task_2`` directory, i.e. the one with the ``pyproject.toml`` file.
 
 The ``fractals`` directory which contains all the ``.py`` files has the structure of a Python package, but so far we have not actually installed it!
 
@@ -253,10 +250,13 @@ Try running ``pytest`` from a different directory - it should now work.
 Change all of the statements that import internal modules so that they import from ``fractals``, rather than by relying on the path.
 
 
+Commit and push your changes to GitHub.
+
 
 .. rubric:: Footnotes
 
 .. [#f1] This is perfectly legit Python code, but generally seen as bad practice since it pollutes the namespace with things that cannot be read off from the import statement.
+    It's possible to tell ``flake8`` to ignore this, but it's far better to be explicit about what we want to import.
 
 .. [#f2] There are other, better options such as Poetry, which also manages dependencies. However, since we're using Conda to manage dependencies, we may as well stick with a packaging tool that is simple and doesn't come with added bells and whistles.
 

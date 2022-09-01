@@ -62,7 +62,7 @@ You should see a message saying *"nothing to commit, working tree clean"*.
 This may seem surprising - we have just added all of this data to our repository.
 However, there is a file called ``.gitignore`` which is telling git to ignore any ``.png`` or ``.json`` files.
 
-.. warning::
+.. important::
 
     You should not commit this data to version control. As it happens, it is within the size limits for GitHub, but it's bad practice to commit raw data and it can slow things down. If you don't see the 'working tree clean' message, let me know!
 
@@ -115,7 +115,7 @@ Once you are happy with the notebook, it's time to commit the changes to GitHub.
 However, first you should make sure you have cleared all of the cell outputs from the notebook, by bringing the *Kernel* menu down and pressing *Restart Kernel and Clear All Outputs*.
 The reason here is similar to the reason for not uploading the dataset; the outputs of Jupyter notebooks can contain huge amounts of data which slows down git operations.
 
-.. warning::
+.. note::
 
     This approach to clearing the outputs of Jupyter notebooks before making a commit is quite tedious, but to my knowledge there aren't any *simple* ways to automate this.
 
@@ -154,6 +154,7 @@ Finally, push the commit to the ``task-1`` branch on the remote repository (i.e.
 .. code-block::
 
     git push -u origin task-1
+
 
 
 Open a pull request

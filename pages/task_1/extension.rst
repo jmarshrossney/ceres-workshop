@@ -20,3 +20,5 @@ Make sure you can distinguish between images containing ships and images without
 
 As an extra challenge, can you make it so that clicking on a point brings up information on that image?
 How about clicking on a point displays the image itself in the corner of the map?
+
+.. hint:: If you get stuck, you might want to check out `this notebook <https://github.com/marshrossney/ships-in-satellite-imagery/blob/main/notebooks/locations.ipynb>`_

@@ -2,45 +2,43 @@
 Main Task
 =========
 
-Check the data is being loaded correctly
-----------------------------------------
+Train a classifier
+------------------
 
-The PyTorch library includes various utilities for constructing *data pipelines*.
-By 'data pipeline' I mean a sequence of instructions that collects, modifies, and then returns a dataset, ready to be used in some other application.
-Without wanting to dig too deep, the most important point is that a data pipeline should be **reusable** and **reproducible**.
+Open the ``mlp_classifier.ipynb`` notebook.
+Within it are instructions to train and run a feed-forward neural network classifier that is entirely analogous to the one in the first task.
 
-Reusable
-    We shouldn't have to rewrite the data pipeline in every new script.
-
-Reproducible
-    It should be possible to *exactly* reproduce a previous instance of the data pipeline.
-
-We are going to use the ``LightningDataModule`` from the PyTorch Lightning library.
-This simplifies 
-
-The way data is loaded into the model is as follows:
-
-.. code-block:: python
-
-    # get an object that iterates over the training dataset
-    training_batches = iter(datamodule.train_dataloader())
-
-    # Get the first training batch
-    inputs, labels = next(training_batches)
-
-Open your ``data_check.ipynb`` notebook in Jupyter Lab.
-Check that the data is being loaded correctly by visualising some of the elements of ``inputs`` using ``array_to_rgb_image`` and ``plt.imshow``.
-
-.. note::
-
-    Imshow expects inputs between 0 and 1. You may need to undo the effect of transforms of the data
+The cells should run without needing to be modified.
+Run each cell one-at-a-time.
+As you are doing so, try to understand what each line is doing. [#f1]_
+Feel free to ask me!
 
 
-Visualise the outputs
----------------------
+Change some hyperparameters
+---------------------------
+
+Based on your intuition from the first task, play around with the hyperparameters (hidden layer sizes, activation function etc).
+Train four or five models before moving onto the next section.
+
+
+Introducing Tensorboard
+-----------------------
+
+At the end of the notebook there is a rather strange looking cell
 
 .. code-block::
 
     %load_ext tensorboard
     %tensorboard --logdir lightning_logs
 
+which you should run.
+
+Hopefully, you should see a `Tensorboard <https://www.tensorflow.org/tensorboard/>`_ window appear in the notebook.
+Browse around the tabs and plots.
+While you are doing this, look back at the earlier cells and try to understand which lines of code were relevant to producing this tensorboard.
+
+
+.. rubric:: Footnotes
+
+
+.. [#f1] Don't worry if it's not clear; in many ways PyTorch and PyTorch Lightning have together succeeded in being highly flexible and yet easy to read, but there are also many areas where using them feels a bit like pressing a button on a black box.

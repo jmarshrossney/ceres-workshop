@@ -2,14 +2,9 @@
 Finishing up
 ============
 
-Merge the pull request
-----------------------
+Once you have finished the task and the continuous integration is successfully passing, you're ready to merge your PR with the main branch.
 
-Once the continuous integration is successfully passing, you're ready to merge your PR with the main branch.
-
-
-Pull updates to the local repo
-------------------------------
+Don't forget to pull your updates to the local repository!
 
 .. code-block::
 
@@ -17,5 +12,4 @@ Pull updates to the local repo
     git pull origin main
 
 
-
-You've completed the first task - **Congratulations!**
+You've completed the second task - **Congratulations!**
