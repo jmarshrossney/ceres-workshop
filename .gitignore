@@ -4,3 +4,4 @@ __pycache__/
 .venv
 pages/_build
 .ipynb_checkpoints/
+lightning_logs/

@@ -1,7 +1,0 @@
-activation: relu
-batch_size: 32
-hidden_shape:
-- 20
-model_class: MLPClassifier
-random_split_seed: 12345
-train_frac: 0.75

@@ -22,7 +22,7 @@ jobs:
         with:
             python-version: 3.9
             mamba-version: "*"
-            environment-file: task-1/environment.yml
+            environment-file: tasks/task_2/environment.yml
       
       - name: Install Package
         shell: bash -l {0}
@@ -33,7 +33,3 @@ jobs:
         run: |
             mamba install flake8
             flake8 tasks/task_2
-      
-      - name: Run Tests
-        shell: bash -l {0}
-        run: pytest grading/test_task_2.py -s --tb=no
