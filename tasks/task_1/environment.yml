@@ -1,4 +1,4 @@
-name: ceres-t1
+name: cerest1
 channels:
   - conda-forge
   - anaconda
