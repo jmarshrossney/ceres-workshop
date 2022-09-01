@@ -87,7 +87,7 @@ class ShipsDataModule(LightningDataModule):
         labels = torch.tensor(data_dict["labels"], dtype=torch.bool)
 
         # Apply standardising transformations here:
-        # pixels = ...
+        pixels = (pixel/255)*2-1
 
         self.full_dataset = LabelledTensorDataset(pixels, labels)
 
