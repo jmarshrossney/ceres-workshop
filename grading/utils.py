@@ -5,6 +5,7 @@ import shutil
 import subprocess
 
 REPO_ROOT = pathlib.Path(__name__).resolve().parent.parent
+TASKS_DIR = REPO_ROOT / "tasks"
 
 
 def verbose(func):
@@ -70,7 +71,7 @@ def check_import(module: str, timeout: float = 2):
 
 
 def check_file(*path: str):
-    path = pathlib.Path(REPO_ROOT).joinpath(*path)
+    path = pathlib.Path(TASKS_DIR).joinpath(*path)
     if not path.exists():
         raise FileNotFoundError(f"No file found at `{path}`")
     elif path.is_dir():
@@ -80,7 +81,7 @@ def check_file(*path: str):
 
 
 def check_dir(*path: str):
-    path = pathlib.Path(REPO_ROOT).joinpath(*path)
+    path = pathlib.Path(TASKS_DIR).joinpath(*path)
     if not path.exists():
         raise FileNotFoundError(f"No file found at `{path}`")
     elif path.is_file():
