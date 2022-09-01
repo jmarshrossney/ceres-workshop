@@ -1,0 +1,10 @@
+[flake8]
+exclude =
+    assets
+    pages
+    grading
+    .git
+    .github
+    .venv
+    .nox
+    __pycache__
