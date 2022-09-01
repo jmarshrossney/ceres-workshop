@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Task 1: Fractals &#8212; CEReS Workshop 0.1.0 documentation</title>
+    <title>Task 1: A Binary Classification Problem &#8212; CEReS Workshop 0.1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting Started" href="task_1/getting_started.html" />
-    <link rel="prev" title="Virtual Environments" href="python/venv.html" /> 
+    <link rel="prev" title="Warm-up exercise" href="warmup.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -56,11 +56,11 @@
           <a href="task_1/getting_started.html" title="Getting Started"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="python/venv.html" title="Virtual Environments"
+          <a href="warmup.html" title="Warm-up exercise"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">CEReS Workshop</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href="">Task 1: Fractals</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Task 1: A Binary Classification Problem</a></li> 
       </ul>
     </div>
     </div>
@@ -71,43 +71,74 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <img alt="_images/dendrite.png" src="_images/dendrite.png" />
-<section id="task-1-fractals">
-<h1>Task 1: Fractals<a class="headerlink" href="#task-1-fractals" title="Permalink to this heading">¶</a></h1>
-<p>Fractals are really cool.
-In this task you will make some visualisations of some well-known fractals such as the one above.</p>
-<p>This is meant to be fun, and perhaps even pique your interest in the maths behind these amazing patterns, but the main aim here is to become familiar with the structure of a Python project, some common design patterns, and some key developer tools. There is no need to care about the maths unless you really want to!</p>
-<p>Remember, you can bring up the documentation for any Python object using <code class="docutils literal notranslate"><span class="pre">help(object)</span></code> or, if you’re using IPython, just <code class="docutils literal notranslate"><span class="pre">object?</span></code>.</p>
-<hr class="docutils" />
+  <img alt="_images/sfbay.png" src="_images/sfbay.png" />
+<section id="task-1-a-binary-classification-problem">
+<h1>Task 1: A Binary Classification Problem<a class="headerlink" href="#task-1-a-binary-classification-problem" title="Permalink to this heading">¶</a></h1>
+<p>As with many Machine Learning introduction courses, we’re going to consider a binary classification task as a pedagogical example.
+The task will be to construct a model that takes a satellite image as its input, and answers the question: does this image contain a ship? <a class="footnote-reference brackets" href="#f1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You might not be remotely interested in binary classification for your own research, but this workshop isn’t really about applying sophisticated ML techniques to hard problems, it’s about doing the basics well!</p>
+</div>
+<p>Before we start, have a quick think about the following questions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Code structure<span class="colon">:</span></dt>
+<dd class="field-odd"><p>How should we organise a project in a way that maximises clarity and reusability.</p>
+</dd>
+<dt class="field-even">Overfitting<span class="colon">:</span></dt>
+<dd class="field-even"><p>How can we use a validation dataset to avoid overfitting.</p>
+</dd>
+<dt class="field-odd">Metrics<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Being critical about the use of metrics; each metric has its own merits and drawbacks, which make it more or less suited to a particular task.</p>
+</dd>
+<dt class="field-even">Unbiased reporting of results<span class="colon">:</span></dt>
+<dd class="field-even"><p>Understanding the role of the test dataset in ensuring reported scores are unbiased.</p>
+</dd>
+<dt class="field-odd">Reproducibility<span class="colon">:</span></dt>
+<dd class="field-odd"><p>How to ensure that we, and others, can reproduce our results <em>exactly</em>.</p>
+</dd>
+</dl>
+<p>The code for this task (and the third) is based on <a class="reference external" href="https://github.com/marshrossney/ships-in-satellite-imagery">this repository</a>.
+Feel free to refer to this as you go, although I only really expect it to be helpful for the extension tasks.</p>
+<p class="rubric">Contents</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="task_1/getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="task_1/getting_started.html#create-a-working-branch">Create a working branch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/getting_started.html#get-the-code-running">Get the code running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/getting_started.html#create-a-new-branch">Create a new branch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/getting_started.html#create-a-conda-environment">Create a Conda environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/getting_started.html#download-the-data">Download the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/getting_started.html#investigate-the-data">Investigate the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/getting_started.html#commit-your-changes">Commit your changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/getting_started.html#open-a-pull-request">Open a pull request</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="task_1/main_task.html">Main Task</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#fix-the-bugs">Fix the bugs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#open-a-pull-request">Open a pull request</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#linting">Linting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#fix-the-import-execution-bug">Fix the import/execution bug</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#make-use-of-oop">Make use of OOP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#catch-bad-inputs">Catch bad inputs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#turn-it-into-a-package">Turn it into a package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#restructure-the-code">Restructure the code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#merge-with-the-main-branch">Merge with the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#run-the-notebook">Run the notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#better-metrics">Better metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#standardise-the-input-data">Standardise the input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#hyper-parameter-optimisation">Hyper-parameter optimisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/main_task.html#reproducibility">Reproducibility</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="task_1/extension.html">Extension Tasks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="task_1/extension.html#explore-the-mandelbrot-set">Explore the Mandelbrot set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/extension.html#make-the-scripts-configurable">Make the scripts configurable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_1/extension.html#make-an-animation">Make an animation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="task_1/extension.html">Extension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="task_1/extension.html#do-a-hyperparameter-search">Do a hyperparameter search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/extension.html#create-a-map-visualisation-for-the-data">Create a map visualisation for the data</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="task_1/complex_numbers.html">Aside: Complex Numbers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="task_1/grading.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="task_1/finishing_up.html">Finishing up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="task_1/finishing_up.html#merge-the-pull-request">Merge the pull request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_1/finishing_up.html#pull-updates-to-the-local-repo">Pull updates to the local repo</a></li>
+</ul>
+</li>
 </ul>
 </div>
+<p class="rubric">Footnotes</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>It’s not hard to imagine situations in which such a model could be of use, either for logistical or law enforcement purposes.</p>
+</aside>
+</aside>
 </section>
 
 
@@ -119,8 +150,8 @@ In this task you will make some visualisations of some well-known fractals such 
         <div class="sphinxsidebarwrapper">
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="python/venv.html"
-                          title="Previous page">&larr; Virtual Environments</a></p>
+    <p class="topless"><a href="warmup.html"
+                          title="Previous page">&larr; Warm-up exercise</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
@@ -180,11 +211,11 @@ In this task you will make some visualisations of some well-known fractals such 
           <a href="task_1/getting_started.html" title="Getting Started"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="python/venv.html" title="Virtual Environments"
+          <a href="warmup.html" title="Warm-up exercise"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">CEReS Workshop</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href="">Task 1: Fractals</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Task 1: A Binary Classification Problem</a></li> 
       </ul>
     </div>
     </div>

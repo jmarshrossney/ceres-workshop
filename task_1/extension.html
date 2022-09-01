@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Extension Tasks &#8212; CEReS Workshop 0.1.0 documentation</title>
+    <title>Extension &#8212; CEReS Workshop 0.1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
@@ -37,7 +37,7 @@
 
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Aside: Complex Numbers" href="complex_numbers.html" />
+    <link rel="next" title="Finishing up" href="finishing_up.html" />
     <link rel="prev" title="Main Task" href="main_task.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
@@ -53,15 +53,15 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="complex_numbers.html" title="Aside: Complex Numbers"
+          <a href="finishing_up.html" title="Finishing up"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="main_task.html" title="Main Task"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="../task_1.html" accesskey="U">Task 1: Fractals</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Extension Tasks</a></li> 
+          <li class="nav-item nav-item-1"><a href="../task_1.html" accesskey="U">Task 1: A Binary Classification Problem</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Extension</a></li> 
       </ul>
     </div>
     </div>
@@ -72,94 +72,23 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="extension-tasks">
-<h1>Extension Tasks<a class="headerlink" href="#extension-tasks" title="Permalink to this heading">¶</a></h1>
-<section id="explore-the-mandelbrot-set">
-<h2>Explore the Mandelbrot set<a class="headerlink" href="#explore-the-mandelbrot-set" title="Permalink to this heading">¶</a></h2>
-<p>Install <code class="docutils literal notranslate"><span class="pre">jupyterlab</span></code> and <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> into your conda environment.</p>
-<p>Create a subdirectory inside <code class="docutils literal notranslate"><span class="pre">task-1</span></code> called <code class="docutils literal notranslate"><span class="pre">notebooks</span></code>.
-Inside this directory, create a Jupyter notebook containing visualisations of the Mandelbrot or Julia sets that you particularly like, along with the parameters used to generate the image.
-Each cell can call the <code class="docutils literal notranslate"><span class="pre">plot</span></code> functions inside the scripts.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You may have to type <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> at the top of the notebook so that the
-visualisations are displayed</p>
-</div>
-<p>Modify the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> so that <code class="docutils literal notranslate"><span class="pre">.ipynb_checkpoints</span></code> directories are not commited to git.</p>
-<p>Once you’re happy with the visualisations, commit this to Github.
-Make sure you include <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> and the updated <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file too.</p>
-<p>Usually we would want to clear the notebook before doing this, but in this case we would like to be able to view the images in the notebook from our browser.</p>
+  <section id="extension">
+<h1>Extension<a class="headerlink" href="#extension" title="Permalink to this heading">¶</a></h1>
+<p>If you found the previous parts of this task easy and want to try something more challenging, these extensions are for you.</p>
+<section id="do-a-hyperparameter-search">
+<h2>Do a hyperparameter search<a class="headerlink" href="#do-a-hyperparameter-search" title="Permalink to this heading">¶</a></h2>
+<p>Use a <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html">Grid Search</a> to search through hyperparameters of your choosing and find an optimal set.</p>
 </section>
-<section id="make-the-scripts-configurable">
-<h2>Make the scripts configurable<a class="headerlink" href="#make-the-scripts-configurable" title="Permalink to this heading">¶</a></h2>
-<p>At the moment, the behaviour of the scripts <code class="docutils literal notranslate"><span class="pre">mandelbrot.py</span></code> and <code class="docutils literal notranslate"><span class="pre">julia.py</span></code> are completely determined by variables hard-coded into the scripts.
-Ideally they would be configurable, i.e. we should be able to control the behaviour at the point of execution, by passing different arguments to the script.</p>
-<p>The task is to extend these scripts so that they can be called directly from the command line by running</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python mandelbrot.py ARGS OPTIONS
-</pre></div>
+<section id="create-a-map-visualisation-for-the-data">
+<h2>Create a map visualisation for the data<a class="headerlink" href="#create-a-map-visualisation-for-the-data" title="Permalink to this heading">¶</a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">dataset.ipynb</span></code> notebook, create a visualisation of the dataset as a set of points on a map (or, perhaps more appropriately, on more than one map).</p>
+<p>Make sure you can distinguish between images containing ships and images without ships, e.g. based on the colour of the points.</p>
+<p>As an extra challenge, can you make it so that clicking on a point brings up information on that image?
+How about clicking on a point displays the image itself in the corner of the map?</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you get stuck, you might want to check out <a class="reference external" href="https://github.com/marshrossney/ships-in-satellite-imagery/blob/main/notebooks/locations.ipynb">this notebook</a></p>
 </div>
-<p>inside the <code class="docutils literal notranslate"><span class="pre">scripts</span></code> directory. In the above, <code class="docutils literal notranslate"><span class="pre">ARGS</span></code> and <code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code> represent a sequence of arguments and options that specify the midpoint, extent, resolution, colour-map and output file.</p>
-<p><strong>Hint:</strong> The simplest way to do this is using <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>, but this is the least best option.
-A better option is the <code class="docutils literal notranslate"><span class="pre">argparse</span></code> package, which is part of the Standard Library.
-However, there are much better parsers out there, e.g. <code class="docutils literal notranslate"><span class="pre">click</span></code>.</p>
-<p>Finally, turn your script into an <strong>entry point</strong> by modifying the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file to include a <code class="docutils literal notranslate"><span class="pre">[project.scripts]</span></code> section.
-Name the entry point something easy to type, e.g. <code class="docutils literal notranslate"><span class="pre">mandel</span></code>.
-You may need to refer to the <a class="reference external" href="https://flit.pypa.io/en/latest/index.html">Flit documentation</a>.</p>
-<p>Now you should be able to run the scripts from any directory by running e.g. <code class="docutils literal notranslate"><span class="pre">mandel</span> <span class="pre">ARGS</span> <span class="pre">OPTIONS</span></code>.</p>
-<p>If you’re successful, why not make a CLI tool to visualise Julia sets too!</p>
-</section>
-<section id="make-an-animation">
-<h2>Make an animation!<a class="headerlink" href="#make-an-animation" title="Permalink to this heading">¶</a></h2>
-<p>The code snippet below contains a function that creates and saves a GIF from a sequence of images.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="kn">from</span> <span class="nn">distutils.util</span> <span class="kn">import</span> <span class="n">strtobool</span>
-<span class="linenos"> 2</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="linenos"> 3</span> <span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">exit</span>
-<span class="linenos"> 4</span> <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
-<span class="linenos"> 5</span>
-<span class="linenos"> 6</span> <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="linenos"> 7</span>
-<span class="linenos"> 8</span> <span class="k">def</span> <span class="nf">make_gif</span><span class="p">(</span><span class="n">images</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">],</span> <span class="n">output</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos"> 9</span>     <span class="sd">&quot;&quot;&quot;</span>
-<span class="linenos">10</span><span class="sd">     Creates a GIF from a sequence of images.</span>
-<span class="linenos">11</span>
-<span class="linenos">12</span><span class="sd">     Args:</span>
-<span class="linenos">13</span><span class="sd">         images:</span>
-<span class="linenos">14</span><span class="sd">             A list of PIL Images</span>
-<span class="linenos">15</span><span class="sd">         output:</span>
-<span class="linenos">16</span><span class="sd">             The name of or path to the output GIF file, including</span>
-<span class="linenos">17</span><span class="sd">             a ``.gif`` extension</span>
-<span class="linenos">18</span><span class="sd">         duration:</span>
-<span class="linenos">19</span><span class="sd">             The duration of each frame of the GIF, in milliseconds</span>
-<span class="linenos">20</span>
-<span class="linenos">21</span><span class="sd">     Warns:</span>
-<span class="linenos">22</span><span class="sd">         If the output file already exists a warning is raised and</span>
-<span class="linenos">23</span><span class="sd">         the user is prompted to either continue or abort</span>
-<span class="linenos">24</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="linenos">25</span>
-<span class="linenos">26</span>     <span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-<span class="linenos">27</span>         <span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{</span><span class="n">output</span><span class="si">}</span><span class="s2">` already exists and will be overridden!&quot;</span><span class="p">)</span>
-<span class="linenos">28</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">strtobool</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Continue? [y/N] &gt;&quot;</span><span class="p">)):</span>
-<span class="linenos">29</span>             <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">30</span>
-<span class="linenos">31</span>     <span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="n">images</span>
-<span class="linenos">32</span>     <span class="n">first</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
-<span class="linenos">33</span>         <span class="n">output</span><span class="p">,</span>
-<span class="linenos">34</span>         <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;GIF&quot;</span><span class="p">,</span>
-<span class="linenos">35</span>         <span class="n">append_images</span><span class="o">=</span><span class="n">rest</span><span class="p">,</span>
-<span class="linenos">36</span>         <span class="n">save_all</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos">37</span>         <span class="n">duration</span><span class="o">=</span><span class="n">duration</span><span class="p">,</span>
-<span class="linenos">38</span>         <span class="n">loop</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-<span class="linenos">39</span>     <span class="p">)</span>
-</pre></div>
-</div>
-<p>Use it to create an animation of the Mandelbrot set.</p>
-<p>I suggest trying to produce the following animation:</p>
-<ul class="simple">
-<li><p>Centred on the so-called <em>Feigenbaum point</em>, <code class="docutils literal notranslate"><span class="pre">centre</span> <span class="pre">=</span> <span class="pre">-1.401155189</span></code></p></li>
-<li><p>500x500 pixels, <code class="docutils literal notranslate"><span class="pre">resolution</span> <span class="pre">=</span> <span class="pre">500</span></code> (but use fewer to test!)</p></li>
-<li><p>100 frames, <code class="docutils literal notranslate"><span class="pre">n_frames</span> <span class="pre">=</span> <span class="pre">100</span></code></p></li>
-<li><p>An extent that starts at <code class="docutils literal notranslate"><span class="pre">extent</span> <span class="pre">=</span> <span class="pre">1.5</span></code> and for each frame decreases by a factor of <code class="docutils literal notranslate"><span class="pre">pow(delta,</span> <span class="pre">3</span> <span class="pre">/</span> <span class="pre">n_frames)</span></code> where <code class="docutils literal notranslate"><span class="pre">delta</span> <span class="pre">=</span> <span class="pre">4.669201609</span></code> is the <em>Feigenbaum delta</em> parameter, and 3 is a number related to how far we want to zoom in</p></li>
-</ul>
 </section>
 </section>
 
@@ -172,10 +101,9 @@ You may need to refer to the <a class="reference external" href="https://flit.py
         <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
     <h3><a href="../index.html">Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Extension Tasks</a><ul>
-<li><a class="reference internal" href="#explore-the-mandelbrot-set">Explore the Mandelbrot set</a></li>
-<li><a class="reference internal" href="#make-the-scripts-configurable">Make the scripts configurable</a></li>
-<li><a class="reference internal" href="#make-an-animation">Make an animation!</a></li>
+<li><a class="reference internal" href="#">Extension</a><ul>
+<li><a class="reference internal" href="#do-a-hyperparameter-search">Do a hyperparameter search</a></li>
+<li><a class="reference internal" href="#create-a-map-visualisation-for-the-data">Create a map visualisation for the data</a></li>
 </ul>
 </li>
 </ul>
@@ -188,8 +116,8 @@ You may need to refer to the <a class="reference external" href="https://flit.py
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="complex_numbers.html"
-                          title="Next page">&rarr; Aside: Complex Numbers</a></p>
+    <p class="topless"><a href="finishing_up.html"
+                          title="Next page">&rarr; Finishing up</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -241,15 +169,15 @@ You may need to refer to the <a class="reference external" href="https://flit.py
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="complex_numbers.html" title="Aside: Complex Numbers"
+          <a href="finishing_up.html" title="Finishing up"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="main_task.html" title="Main Task"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="../task_1.html" >Task 1: Fractals</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Extension Tasks</a></li> 
+          <li class="nav-item nav-item-1"><a href="../task_1.html" >Task 1: A Binary Classification Problem</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Extension</a></li> 
       </ul>
     </div>
     </div>

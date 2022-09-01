@@ -1,0 +1,339 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Guides &#8212; CEReS Workshop 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="External Resources" href="resources.html" />
+    <link rel="prev" title="Finishing up" href="task_3/finishing_up.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="resources.html" title="External Resources"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="task_3/finishing_up.html" title="Finishing up"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">CEReS Workshop</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Guides</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="guides">
+<h1>Guides<a class="headerlink" href="#guides" title="Permalink to this heading">¶</a></h1>
+<section id="python-tools">
+<h2>Python tools<a class="headerlink" href="#python-tools" title="Permalink to this heading">¶</a></h2>
+<p class="rubric">Getting help</p>
+<p>It’s well worth knowing from the get-go how to bring up documentation for Python objects.
+Generally, you can do this by typing <code class="docutils literal notranslate"><span class="pre">help(object)</span></code>, but in IPython you can also use <code class="docutils literal notranslate"><span class="pre">?</span></code>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ python
+
+&gt;&gt;&gt; import math
+
+&gt;&gt;&gt; help<span class="o">(</span>math.ceil<span class="o">)</span>
+Help on built-in <span class="k">function</span> ceil <span class="k">in</span> module math:
+
+ceil<span class="o">(</span>x, /<span class="o">)</span>
+    Return the ceiling of x as an Integral.
+
+    This is the smallest integer &gt;<span class="o">=</span> x.
+</pre></div>
+</div>
+<p>or in IPython</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ipython
+
+In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: import math
+
+In <span class="o">[</span><span class="m">2</span><span class="o">]</span>: math.ceil?
+Signature: math.ceil<span class="o">(</span>x, /<span class="o">)</span>
+Docstring:
+Return the ceiling of x as an Integral.
+
+This is the smallest integer &gt;<span class="o">=</span> x.
+Type:      builtin_function_or_method
+</pre></div>
+</div>
+<p class="rubric">Testing</p>
+<p>Install <a class="reference external" href="https://docs.pytest.org/">PyTest</a> into your Conda environment</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">pytest</span>
+</pre></div>
+</div>
+<p>Let’s say you have organised your code into a package <code class="docutils literal notranslate"><span class="pre">package</span></code> as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── package
+│   ├── __init__.py
+│   ├── module_1.py
+│   ├── module_2.py
+│   └── tests
+│       ├── __init__.py
+│       ├── test_module_1.py
+│       └── test_module_2.py
+└── pyproject.toml
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">test_module_1.py</span></code> contains test functions whose names start with <code class="docutils literal notranslate"><span class="pre">test_</span></code>, e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># inside test_module_1.py</span>
+<span class="kn">from</span> <span class="nn">package.module_1</span> <span class="kn">import</span> <span class="n">function</span><span class="p">,</span> <span class="n">variable</span>
+
+<span class="k">def</span> <span class="nf">test_function</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">function</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">True</span>
+
+<span class="k">def</span> <span class="nf">test_variable</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">variable</span> <span class="o">==</span> <span class="mi">42</span>
+</pre></div>
+</div>
+<p>We can run these tests from anywhere in the tree shown above by simply executing</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span>
+</pre></div>
+</div>
+<p class="rubric">Benchmarking</p>
+<p>As well as being a Standard Library package, <code class="docutils literal notranslate"><span class="pre">timeit</span></code> is a magic method in IPython.</p>
+<p>In Ipython or a Jupyter notebook it can be used to measure execution time as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_func</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Some function I want to time.&quot;&quot;&quot;</span>
+    <span class="o">...</span>
+
+<span class="o">%</span><span class="n">timeit</span> <span class="n">my_func</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Typically it will run the given source code many times to get an average time.</p>
+<p class="rubric">Formatting</p>
+<p>Install <a class="reference external" href="https://github.com/psf/black">Black</a> into your Conda environment</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">black</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">black</span>
+</pre></div>
+</div>
+<p>If you want to format Jupyter notebooks,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">black</span><span class="p">[</span><span class="n">jupyter</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>To format your code, just run the following command in the directory containing the files you want to format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">black</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>You can configure <code class="docutils literal notranslate"><span class="pre">black</span></code> (e.g. change the max line length, tell it to ignore directories…) in your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file.
+See the documentation for details.</p>
+<p class="rubric">Linting</p>
+<p>Install <a class="reference external" href="https://flake8.pycqa.org/en/latest/">Flake8</a> into your Conda environment</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">flake8</span>
+</pre></div>
+</div>
+<p>Run it as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flake8</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>You may want Flake8 to ignore certain errors that you don’t care about.
+In this case, you need to create a file <code class="docutils literal notranslate"><span class="pre">.flake8</span></code> (in your repository root) to configure Flake8.
+See the <a class="reference external" href="https://flake8.pycqa.org/en/latest/user/configuration.html">documentation</a>.</p>
+</section>
+<section id="basic-git-workflow">
+<h2>Basic Git workflow<a class="headerlink" href="#basic-git-workflow" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Make a local clone of a remote repository</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/&lt;</span><span class="n">username</span><span class="o">&gt;/&lt;</span><span class="n">repo_name</span><span class="o">&gt;.</span><span class="n">git</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Switch to an existing branch</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">switch</span> <span class="o">&lt;</span><span class="n">existing_branch</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Create a new branch, based on the current one, and switch to it</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="o">&lt;</span><span class="n">new_branch</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Inspect the local changes you’ve made</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="o">--</span><span class="n">compact</span><span class="o">-</span><span class="n">summary</span>
+<span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Add changes to the staging area</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">&lt;</span><span class="n">files</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Create a local commit based on staged changes</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;a message about what this commit contains&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Push the changes to the remote</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="o">&lt;</span><span class="n">new_branch</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Merge your branch with the original one (or, alternatively, use a pull request!)</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">switch</span> <span class="o">&lt;</span><span class="n">existing_branch</span><span class="o">&gt;</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="o">&lt;</span><span class="n">new_branch</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="how-to-create-a-package">
+<h2>How to create a package<a class="headerlink" href="#how-to-create-a-package" title="Permalink to this heading">¶</a></h2>
+<p>TODO</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="index.html">Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Guides</a><ul>
+<li><a class="reference internal" href="#python-tools">Python tools</a></li>
+<li><a class="reference internal" href="#basic-git-workflow">Basic Git workflow</a></li>
+<li><a class="reference internal" href="#how-to-create-a-package">How to create a package</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="task_3/finishing_up.html"
+                          title="Previous page">&larr; Finishing up</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="resources.html"
+                          title="Next page">&rarr; External Resources</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/guides.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="resources.html" title="External Resources"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="task_3/finishing_up.html" title="Finishing up"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">CEReS Workshop</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Guides</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Joe Marsh Rossney.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

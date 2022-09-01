@@ -1,0 +1,191 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Task 3: Introducing PyTorch &#8212; CEReS Workshop 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting Started" href="task_3/getting_started.html" />
+    <link rel="prev" title="Tests" href="task_2/grading.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="task_3/getting_started.html" title="Getting Started"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="task_2/grading.html" title="Tests"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">CEReS Workshop</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Task 3: Introducing PyTorch</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <img alt="_images/pytorch.png" src="_images/pytorch.png" />
+<section id="task-3-introducing-pytorch">
+<h1>Task 3: Introducing PyTorch<a class="headerlink" href="#task-3-introducing-pytorch" title="Permalink to this heading">¶</a></h1>
+<p>In this task we’re going to approach the same binary classification problem as in the first task.
+However, this time we will use the much more powerful and flexible PyTorch library.</p>
+<p>The code for this task (as with the first) is based on <a class="reference external" href="https://github.com/marshrossney/ships-in-satellite-imagery">this repository</a>.</p>
+<p class="rubric">Contents</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="task_3/getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="task_3/getting_started.html#create-a-new-branch-and-conda-environment">Create a new branch and Conda environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_3/getting_started.html#install-the-shipsnet-package">Install the <code class="docutils literal notranslate"><span class="pre">shipsnet</span></code> package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_3/getting_started.html#standardise-the-input-data">Standardise the input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_3/getting_started.html#commit-your-changes-and-open-a-pr">Commit your changes and open a PR</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="task_3/main_task.html">Main Task</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="task_3/main_task.html#train-a-classifier">Train a classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_3/main_task.html#change-some-hyperparameters">Change some hyperparameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_3/main_task.html#introducing-tensorboard">Introducing Tensorboard</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="task_3/extension.html">Extension: Competition time!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="task_3/finishing_up.html">Finishing up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="task_3/finishing_up.html#test-your-best-model">Test your best model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_3/finishing_up.html#push-your-changes-and-merge-the-pull-request">Push your changes and merge the pull request</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="task_2/grading.html"
+                          title="Previous page">&larr; Tests</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="task_3/getting_started.html"
+                          title="Next page">&rarr; Getting Started</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/task_3.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="task_3/getting_started.html" title="Getting Started"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="task_2/grading.html" title="Tests"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">CEReS Workshop</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Task 3: Introducing PyTorch</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Joe Marsh Rossney.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

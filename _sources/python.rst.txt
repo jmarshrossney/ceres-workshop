@@ -1,9 +1,0 @@
-======
-Python
-======
-
-
-.. toctree::
-    :glob:
-
-    python/*

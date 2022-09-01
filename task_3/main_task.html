@@ -1,0 +1,209 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Main Task &#8212; CEReS Workshop 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Extension: Competition time!" href="extension.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="extension.html" title="Extension: Competition time!"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="getting_started.html" title="Getting Started"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../task_3.html" accesskey="U">Task 3: Introducing PyTorch</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Main Task</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="main-task">
+<h1>Main Task<a class="headerlink" href="#main-task" title="Permalink to this heading">¶</a></h1>
+<section id="train-a-classifier">
+<h2>Train a classifier<a class="headerlink" href="#train-a-classifier" title="Permalink to this heading">¶</a></h2>
+<p>Open the <code class="docutils literal notranslate"><span class="pre">mlp_classifier.ipynb</span></code> notebook.
+Within it are instructions to train and run a feed-forward neural network classifier that is entirely analogous to the one in the first task.</p>
+<p>The cells should run without needing to be modified.
+Run each cell one-at-a-time.
+As you are doing so, try to understand what each line is doing. <a class="footnote-reference brackets" href="#f1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
+Feel free to ask me!</p>
+</section>
+<section id="change-some-hyperparameters">
+<h2>Change some hyperparameters<a class="headerlink" href="#change-some-hyperparameters" title="Permalink to this heading">¶</a></h2>
+<p>Based on your intuition from the first task, play around with the hyperparameters (hidden layer sizes, activation function etc).
+Train four or five models before moving onto the next section.</p>
+</section>
+<section id="introducing-tensorboard">
+<h2>Introducing Tensorboard<a class="headerlink" href="#introducing-tensorboard" title="Permalink to this heading">¶</a></h2>
+<p>At the end of the notebook there is a rather strange looking cell</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">tensorboard</span>
+<span class="o">%</span><span class="n">tensorboard</span> <span class="o">--</span><span class="n">logdir</span> <span class="n">lightning_logs</span>
+</pre></div>
+</div>
+<p>which you should run.</p>
+<p>Hopefully, you should see a <a class="reference external" href="https://www.tensorflow.org/tensorboard/">Tensorboard</a> window appear in the notebook.
+Browse around the tabs and plots.
+While you are doing this, look back at the earlier cells and try to understand which lines of code were relevant to producing this tensorboard.</p>
+<p class="rubric">Footnotes</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Don’t worry if it’s not clear; in many ways PyTorch and PyTorch Lightning have together succeeded in being highly flexible and yet easy to read, but there are also many areas where using them feels a bit like pressing a button on a black box.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Main Task</a><ul>
+<li><a class="reference internal" href="#train-a-classifier">Train a classifier</a></li>
+<li><a class="reference internal" href="#change-some-hyperparameters">Change some hyperparameters</a></li>
+<li><a class="reference internal" href="#introducing-tensorboard">Introducing Tensorboard</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="getting_started.html"
+                          title="Previous page">&larr; Getting Started</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="extension.html"
+                          title="Next page">&rarr; Extension: Competition time!</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/task_3/main_task.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="extension.html" title="Extension: Competition time!"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="getting_started.html" title="Getting Started"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../task_3.html" >Task 3: Introducing PyTorch</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Main Task</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Joe Marsh Rossney.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

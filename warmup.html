@@ -1,0 +1,250 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Warm-up exercise &#8212; CEReS Workshop 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Task 1: A Binary Classification Problem" href="task_1.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="task_1.html" title="Task 1: A Binary Classification Problem"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="getting_started.html" title="Getting Started"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">CEReS Workshop</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Warm-up exercise</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <figure class="align-default" id="id2">
+<img alt="_images/penguins.png" src="_images/penguins.png" />
+<figcaption>
+<p><span class="caption-text">Artwork by &#64;allison_horst</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="warm-up-exercise">
+<h1>Warm-up exercise<a class="headerlink" href="#warm-up-exercise" title="Permalink to this heading">¶</a></h1>
+<p>Check that your Conda installation is working correctly by running the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">test</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>If this has worked you should be able to type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span></code> and see that the ‘active environment’ is <code class="docutils literal notranslate"><span class="pre">test</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Double check that you’ve successfully activated the environment before proceeding!</p>
+</div>
+<p>Let’s install a couple of packages from the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ipython</span> <span class="n">seaborn</span>
+</pre></div>
+</div>
+<p>If this all works, you should find that you can run Interactive Python in the terminal be typing <code class="docutils literal notranslate"><span class="pre">ipython</span></code>.
+Your terminal should now show a prompt that looks something (though not exactly) like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ipython
+Python 3.9.13 | packaged by conda-forge | (main, May 27 2022, 16:58:50)
+Type &#39;copyright&#39;, &#39;credits&#39; or &#39;license&#39; for more information
+IPython 8.4.0 -- An enhanced Interactive Python. Type &#39;?&#39; for help.
+
+In [1]
+</pre></div>
+</div>
+<p>Enter the following commands one-by-one:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">seaborn</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">df</span> <span class="o">=</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;penguins&quot;</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You should see a nice-looking figure appear. <a class="footnote-reference brackets" href="#f1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
+Wow, that was pretty easy…</p>
+<p>Let’s dig into this just a little. Back in IPython:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>In [5]: type(df)  # what did we just load...?
+Out[5]: pandas.core.frame.DataFrame  # a pandas DataFrame!
+
+In [6]: df.info()  # I&#39;d like a bit more information, please..
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 344 entries, 0 to 343
+Data columns (total 7 columns):
+ #   Column             Non-Null Count  Dtype
+---  ------             --------------  -----
+ 0   species            344 non-null    object
+ 1   island             344 non-null    object
+ 2   bill_length_mm     342 non-null    float64
+ 3   bill_depth_mm      342 non-null    float64
+ 4   flipper_length_mm  342 non-null    float64
+ 5   body_mass_g        342 non-null    float64
+ 6   sex                333 non-null    object
+dtypes: float64(4), object(3)
+memory usage: 18.9+ KB
+
+In [7]: seaborn.pairplot?  # tell me about this &#39;pairplot&#39;
+Signature:
+seaborn.pairplot(
+    data,
+    *,
+    hue=None,
+    ...
+</pre></div>
+</div>
+<p>Press <code class="docutils literal notranslate"><span class="pre">q</span></code> to close the <code class="docutils literal notranslate"><span class="pre">pairplot</span></code> help page, and CTRL-D to close IPython.</p>
+<p>Hopefully you’ve seen how easy it can be to not only perform complicated tasks in Python, but to also inspect and interrogate Python objects (without even needing to open your browser).</p>
+<p>Let’s clean up after ourselves and delete this Conda environment</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">deactivate</span>
+<span class="n">conda</span> <span class="n">env</span> <span class="n">remove</span> <span class="o">--</span><span class="n">name</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p class="rubric">Footnotes</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>As well as <code class="docutils literal notranslate"><span class="pre">penguins</span></code>, there are other datasets that you can access directly through <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.
+You can browse through them <a class="reference external" href="https://github.com/mwaskom/seaborn-data">here</a>.
+Why not find one you like the look of and work through some of the <a class="reference external" href="https://seaborn.pydata.org/tutorial.html">visualisation tutorials</a>.</p>
+</aside>
+</aside>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="getting_started.html"
+                          title="Previous page">&larr; Getting Started</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="task_1.html"
+                          title="Next page">&rarr; Task 1: A Binary Classification Problem</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/warmup.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="task_1.html" title="Task 1: A Binary Classification Problem"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="getting_started.html" title="Getting Started"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">CEReS Workshop</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Warm-up exercise</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Joe Marsh Rossney.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

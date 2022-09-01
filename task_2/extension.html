@@ -1,0 +1,270 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Extension Tasks &#8212; CEReS Workshop 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Finishing up" href="finishing_up.html" />
+    <link rel="prev" title="Main Task" href="main_task.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="finishing_up.html" title="Finishing up"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="main_task.html" title="Main Task"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../task_2.html" accesskey="U">Task 2: Fractals</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Extension Tasks</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="extension-tasks">
+<h1>Extension Tasks<a class="headerlink" href="#extension-tasks" title="Permalink to this heading">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You may find it useful to check out <a class="reference external" href="https://github.com/marshrossney/mandelbrot">this repository</a> if you get stuck.</p>
+</div>
+<section id="explore-the-mandelbrot-set">
+<h2>Explore the Mandelbrot set<a class="headerlink" href="#explore-the-mandelbrot-set" title="Permalink to this heading">¶</a></h2>
+<p>Install <code class="docutils literal notranslate"><span class="pre">jupyterlab</span></code> and <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> into your conda environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">jupyterlab</span> <span class="n">ipywidgets</span>
+</pre></div>
+</div>
+<p>Create a subdirectory inside <code class="docutils literal notranslate"><span class="pre">task_2</span></code> called <code class="docutils literal notranslate"><span class="pre">notebooks</span></code>.
+Inside this directory, create a Jupyter notebook containing visualisations of the Mandelbrot or Julia sets that you particularly like, along with the parameters used to generate the image.
+Each cell can call the <code class="docutils literal notranslate"><span class="pre">plot</span></code> functions inside the scripts.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You may have to type <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> at the top of the notebook so that the
+visualisations are displayed</p>
+</div>
+<p>Modify the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> so that <code class="docutils literal notranslate"><span class="pre">.ipynb_checkpoints</span></code> directories are not commited to git.</p>
+<p>Once you’re happy with the visualisations, commit this to Github.
+Make sure you include <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> an d the updated <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file too.</p>
+<p>Usually we would want to clear the notebook before doing this, but in this case we would like to be able to view the images in the notebook from our browser.</p>
+</section>
+<section id="make-the-scripts-configurable">
+<h2>Make the scripts configurable<a class="headerlink" href="#make-the-scripts-configurable" title="Permalink to this heading">¶</a></h2>
+<p>At the moment, the behaviour of the scripts <code class="docutils literal notranslate"><span class="pre">mandelbrot.py</span></code> and <code class="docutils literal notranslate"><span class="pre">julia.py</span></code> are completely determined by variables hard-coded into the scripts.
+Ideally they would be configurable, i.e. we should be able to control the behaviour at the point of execution, by passing different arguments to the script.</p>
+<p>The task is to extend these scripts so that they can be called directly from the command line by running</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python mandelbrot.py ARGS OPTIONS
+</pre></div>
+</div>
+<p>inside the <code class="docutils literal notranslate"><span class="pre">scripts</span></code> directory. In the above, <code class="docutils literal notranslate"><span class="pre">ARGS</span></code> and <code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code> represent a sequence of arguments and options that specify the midpoint, extent, resolution, colour-map and output file.</p>
+<p><strong>Hint:</strong> The simplest way to do this is using <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>, but this is the least best option.
+A better option is the <a class="reference external" href="https://docs.python.org/3/library/argparse.html">Argparse</a> package, which is part of the Standard Library.
+However, there are much better parsers out there, e.g. <a class="reference external" href="https://click.palletsprojects.com">Click</a>.</p>
+<p>Finally, turn your script into an <strong>entry point</strong> by modifying the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file to include a <code class="docutils literal notranslate"><span class="pre">[project.scripts]</span></code> section.
+Name the entry point something easy to type, e.g. <code class="docutils literal notranslate"><span class="pre">mandel</span></code>.
+You may need to refer to the <a class="reference external" href="https://flit.pypa.io">Flit documentation</a>.</p>
+<p>Now you should be able to run the scripts from any directory by running e.g. <code class="docutils literal notranslate"><span class="pre">mandel</span> <span class="pre">ARGS</span> <span class="pre">OPTIONS</span></code>.</p>
+<p>If you’re successful, why not make a CLI tool to visualise Julia sets too!</p>
+</section>
+<section id="make-an-animation">
+<h2>Make an animation!<a class="headerlink" href="#make-an-animation" title="Permalink to this heading">¶</a></h2>
+<p>The code snippet below contains a function that creates and saves a GIF from a sequence of images.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="kn">from</span> <span class="nn">distutils.util</span> <span class="kn">import</span> <span class="n">strtobool</span>
+<span class="linenos"> 2</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="linenos"> 3</span> <span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">exit</span>
+<span class="linenos"> 4</span> <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span> <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span> <span class="k">def</span> <span class="nf">make_gif</span><span class="p">(</span><span class="n">images</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">],</span> <span class="n">output</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 9</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">10</span><span class="sd">     Creates a GIF from a sequence of images.</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="sd">     Args:</span>
+<span class="linenos">13</span><span class="sd">         images:</span>
+<span class="linenos">14</span><span class="sd">             A list of PIL Images</span>
+<span class="linenos">15</span><span class="sd">         output:</span>
+<span class="linenos">16</span><span class="sd">             The name of or path to the output GIF file, including</span>
+<span class="linenos">17</span><span class="sd">             a ``.gif`` extension</span>
+<span class="linenos">18</span><span class="sd">         duration:</span>
+<span class="linenos">19</span><span class="sd">             The duration of each frame of the GIF, in milliseconds</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="sd">     Warns:</span>
+<span class="linenos">22</span><span class="sd">         If the output file already exists a warning is raised and</span>
+<span class="linenos">23</span><span class="sd">         the user is prompted to either continue or abort</span>
+<span class="linenos">24</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span>     <span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+<span class="linenos">27</span>         <span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{</span><span class="n">output</span><span class="si">}</span><span class="s2">` already exists and will be overridden!&quot;</span><span class="p">)</span>
+<span class="linenos">28</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">strtobool</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Continue? [y/N] &gt;&quot;</span><span class="p">)):</span>
+<span class="linenos">29</span>             <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span>     <span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="n">images</span>
+<span class="linenos">32</span>     <span class="n">first</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+<span class="linenos">33</span>         <span class="n">output</span><span class="p">,</span>
+<span class="linenos">34</span>         <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;GIF&quot;</span><span class="p">,</span>
+<span class="linenos">35</span>         <span class="n">append_images</span><span class="o">=</span><span class="n">rest</span><span class="p">,</span>
+<span class="linenos">36</span>         <span class="n">save_all</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">37</span>         <span class="n">duration</span><span class="o">=</span><span class="n">duration</span><span class="p">,</span>
+<span class="linenos">38</span>         <span class="n">loop</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="linenos">39</span>     <span class="p">)</span>
+</pre></div>
+</div>
+<p>Use it to create an animation of the Mandelbrot set.</p>
+<p>I suggest trying to produce the following animation:</p>
+<ul class="simple">
+<li><p>Centred on the so-called <em>Feigenbaum point</em>, <code class="docutils literal notranslate"><span class="pre">centre</span> <span class="pre">=</span> <span class="pre">-1.401155189</span></code></p></li>
+<li><p>500x500 pixels, <code class="docutils literal notranslate"><span class="pre">resolution</span> <span class="pre">=</span> <span class="pre">500</span></code> (but use fewer to test!)</p></li>
+<li><p>100 frames, <code class="docutils literal notranslate"><span class="pre">n_frames</span> <span class="pre">=</span> <span class="pre">100</span></code></p></li>
+<li><p>An extent that starts at <code class="docutils literal notranslate"><span class="pre">extent</span> <span class="pre">=</span> <span class="pre">1.5</span></code> and for each frame decreases by a factor of <code class="docutils literal notranslate"><span class="pre">pow(delta,</span> <span class="pre">3</span> <span class="pre">/</span> <span class="pre">n_frames)</span></code> where <code class="docutils literal notranslate"><span class="pre">delta</span> <span class="pre">=</span> <span class="pre">4.669201609</span></code> is the <em>Feigenbaum delta</em> parameter, and 3 is a number related to how far we want to zoom in</p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Extension Tasks</a><ul>
+<li><a class="reference internal" href="#explore-the-mandelbrot-set">Explore the Mandelbrot set</a></li>
+<li><a class="reference internal" href="#make-the-scripts-configurable">Make the scripts configurable</a></li>
+<li><a class="reference internal" href="#make-an-animation">Make an animation!</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="main_task.html"
+                          title="Previous page">&larr; Main Task</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="finishing_up.html"
+                          title="Next page">&rarr; Finishing up</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/task_2/extension.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="finishing_up.html" title="Finishing up"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="main_task.html" title="Main Task"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../task_2.html" >Task 2: Fractals</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Extension Tasks</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Joe Marsh Rossney.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

@@ -37,8 +37,8 @@
 
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Git &amp; GitHub" href="git.html" />
-    <link rel="prev" title="Workshop Outline" href="index.html" /> 
+    <link rel="next" title="Warm-up exercise" href="warmup.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -53,10 +53,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="git.html" title="Git &amp; GitHub"
+          <a href="warmup.html" title="Warm-up exercise"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="index.html" title="Workshop Outline"
+          <a href="introduction.html" title="Introduction"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">CEReS Workshop</a> &#187;</li>
 
@@ -73,6 +73,61 @@
             
   <section id="getting-started">
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h1>
+<p class="rubric">Prerequisites</p>
+<p><strong>Git and Github:</strong></p>
+<p>You will need <a class="footnote-reference brackets" href="#f1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<ul class="simple">
+<li><p>A <a class="reference external" href="https://github.com/">GitHub</a> account</p></li>
+<li><p>The ability to perform git operations on your computer, either via terminal commands or through <a class="reference external" href="https://desktop.github.com/">GitHub Desktop</a></p></li>
+</ul>
+<p>GitHub have recently increased their security quite dramatically, so you will need to <a class="reference external" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">create a personal access token</a> to push to GitHub from the command line.</p>
+<p><strong>Conda:</strong></p>
+<p>You have a choice to use either</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>, or</p></li>
+<li><p><a class="reference external" href="https://www.anaconda.com/">Anaconda</a></p></li>
+</ul>
+<p>I personally recommend Miniconda because it doesn’t require you to download thousands of packages you will never use, but Anaconda is designed to be more user-friendly.</p>
+<p><strong>Kaggle:</strong></p>
+<p>Take a look at <a class="reference external" href="https://www.kaggle.com/">Kaggle</a>.
+It’s a rather nice platform for ‘open’ data science, which is now owned by Google.
+If you don’t mind ths, create an account.
+This will make it easier to access some data we will use in the workshop.</p>
+<p>If you would prefer not to create a Kaggle account don’t worry - talk to me and we can get the data another way.</p>
+<p><strong>Text editor or IDE:</strong></p>
+<p>You need something that is able to read and edit <code class="docutils literal notranslate"><span class="pre">.py</span></code> and other text-based files.</p>
+<p><strong>Internet access:</strong></p>
+<p>Several parts of this workshop require internet access.</p>
+<p class="rubric">Fork and clone the repository</p>
+<p>Go to the <a class="reference external" href="https://github.com/marshrossney/ceres-workshop">workshop GitHub page</a> and click the button in the top-right that says <em>Fork</em>.
+If prompted, select the option that clones the ‘main’ branch only.
+You should now find that <code class="docutils literal notranslate"><span class="pre">ceres-workshop</span></code> appears in <em>your</em> list of GitHub repositories.</p>
+<p>The next step is to make a local clone of your fork.
+If you’re using GitHub Desktop, you can do this from the browser by click on the green ‘Code’ button, followed by ‘Open with GitHub Desktop’ - see <a class="reference external" href="https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop">these instructions</a>.
+If you’re using the command line, simply navigate to a directory that you’d like to work from and enter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/&lt;</span><span class="n">username</span><span class="o">&gt;/</span><span class="n">ceres</span><span class="o">-</span><span class="n">workshop</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>in your terminal, where <code class="docutils literal notranslate"><span class="pre">&lt;username&gt;</span></code> is your own GitHub username.</p>
+<div class="admonition-before-you-continue admonition">
+<p class="admonition-title">Before you continue</p>
+<ul class="simple">
+<li><p>Have you installed <code class="docutils literal notranslate"><span class="pre">git</span></code> or GitHub Desktop on your computer, and authenticated them so that you can push changes to GitHub?</p></li>
+<li><p>Have you forked the <code class="docutils literal notranslate"><span class="pre">ceres-workshop</span></code> repository, so that it appears in your repositories on GitHub?</p></li>
+<li><p>Have you made a local clone of this repository, using GitHub Desktop or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>?</p></li>
+<li><p>Have you installed either Miniconda (recommended) or Anaconda, and are able to activate an environment using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code>?</p></li>
+<li><p>Have you made an account with Kaggle, or talked to me about getting hold of the data?</p></li>
+<li><p>Are you able to open <code class="docutils literal notranslate"><span class="pre">.py</span></code> files using a text editor or IDE?</p></li>
+<li><p>Are you connected to the internet?</p></li>
+</ul>
+</div>
+<p class="rubric">Footnotes</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>It is actually possible to do the tasks without using <code class="docutils literal notranslate"><span class="pre">git</span></code> or GitHub; you can just download the code as a zipped archive and work on it locally. However, I strongly recommend against this; the focus of this workshop is just as much on using git as it is on Python.</p>
+</aside>
+</aside>
 </section>
 
 
@@ -84,13 +139,13 @@
         <div class="sphinxsidebarwrapper">
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="index.html"
-                          title="Previous page">&larr; Workshop Outline</a></p>
+    <p class="topless"><a href="introduction.html"
+                          title="Previous page">&larr; Introduction</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="git.html"
-                          title="Next page">&rarr; Git &amp; GitHub</a></p>
+    <p class="topless"><a href="warmup.html"
+                          title="Next page">&rarr; Warm-up exercise</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -142,10 +197,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="git.html" title="Git &amp; GitHub"
+          <a href="warmup.html" title="Warm-up exercise"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="index.html" title="Workshop Outline"
+          <a href="introduction.html" title="Introduction"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">CEReS Workshop</a> &#187;</li>
 

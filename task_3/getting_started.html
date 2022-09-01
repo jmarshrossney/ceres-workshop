@@ -1,0 +1,252 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Getting Started &#8212; CEReS Workshop 0.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Main Task" href="main_task.html" />
+    <link rel="prev" title="Task 3: Introducing PyTorch" href="../task_3.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="main_task.html" title="Main Task"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../task_3.html" title="Task 3: Introducing PyTorch"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../task_3.html" accesskey="U">Task 3: Introducing PyTorch</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Getting Started</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h1>
+<section id="create-a-new-branch-and-conda-environment">
+<h2>Create a new branch and Conda environment<a class="headerlink" href="#create-a-new-branch-and-conda-environment" title="Permalink to this heading">¶</a></h2>
+<p>You know the drill by now!</p>
+<p>Starting from the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch, create a new branch called <code class="docutils literal notranslate"><span class="pre">task-3</span></code>.
+Push this branch to Github.</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file provided in the <code class="docutils literal notranslate"><span class="pre">tasks/task_3</span></code> directory to create a new Conda environment called <code class="docutils literal notranslate"><span class="pre">ceres-t3</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Please keep an eye on the version of PyTorch Lightning that Conda installs.
+You can type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span> <span class="pre">torch</span></code> to see this.
+If it is below 1.0, let me know.
+I have found that Mamba can often resolve dependencies much better than Conda, resulting in more up-to-date packages.</p>
+</div>
+</section>
+<section id="install-the-shipsnet-package">
+<h2>Install the <code class="docutils literal notranslate"><span class="pre">shipsnet</span></code> package<a class="headerlink" href="#install-the-shipsnet-package" title="Permalink to this heading">¶</a></h2>
+<p>Activate your new Conda environment.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">flit</span></code> (which should be installed) to install the <code class="docutils literal notranslate"><span class="pre">shipsnet</span></code> package in ‘editable’ mode (i.e. with the <code class="docutils literal notranslate"><span class="pre">--symlink</span></code> option).</p>
+</section>
+<section id="standardise-the-input-data">
+<h2>Standardise the input data<a class="headerlink" href="#standardise-the-input-data" title="Permalink to this heading">¶</a></h2>
+<p>In the first task you will have found that it was important to apply some sort of standardising transform to the raw 8-bit pixels.
+You’ll want to apply the same transformation here.</p>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">shipsnet</span></code> package there is a module called <code class="docutils literal notranslate"><span class="pre">data</span></code> (<code class="docutils literal notranslate"><span class="pre">data.py</span></code>) that contains
+a class <code class="docutils literal notranslate"><span class="pre">ShipsDataModule</span></code>.
+This class contains all of the instructions for downloading, transforming and splitting the dataset (neat, eh?)
+You should add an appropriate standardisation transformation to the <code class="docutils literal notranslate"><span class="pre">setup</span></code> method, where indicated in the comments.</p>
+</section>
+<section id="commit-your-changes-and-open-a-pr">
+<h2>Commit your changes and open a PR<a class="headerlink" href="#commit-your-changes-and-open-a-pr" title="Permalink to this heading">¶</a></h2>
+<p>Once you’re done, commit your changes and push to GitHub and open a pull request to the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p>
+<p class="rubric">Further reading: Data pipelines</p>
+<p>The PyTorch library includes various utilities for constructing <em>data pipelines</em>.
+By ‘data pipeline’ I mean a sequence of instructions that collects, modifies, and then returns a dataset, ready to be used in some other application.
+Without wanting to dig too deep, the most important point is that a data pipeline should be <strong>reusable</strong> and <strong>reproducible</strong>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Reusable<span class="colon">:</span></dt>
+<dd class="field-odd"><p>We shouldn’t have to rewrite the data pipeline in every new script.</p>
+</dd>
+<dt class="field-even">Reproducible<span class="colon">:</span></dt>
+<dd class="field-even"><p>It should be possible to <em>exactly</em> reproduce a previous instance of the data pipeline.</p>
+</dd>
+</dl>
+<p>The <code class="docutils literal notranslate"><span class="pre">ShipsDataModule</span></code> class is a subclass of <code class="docutils literal notranslate"><span class="pre">LightningDataModule</span></code>, which comes from the PyTorch Lightning library.
+It’s aim is to be a <em>single source of truth</em> when it comes to questions related to the data, right the way from how it is obtained from e.g. some internet archive, through to the point at which it is passed through in batches to the model being trained.</p>
+<p>Unfortunately the way it is actually used is fairly unintuitive if you are new to PyTorch; don’t worry if you don’t quite see how everything fits together!</p>
+<p>In summary, what happens is:</p>
+<ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">prepare_data</span></code> method is executed, downloading/extracting the dataset</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">setup</span></code> method is executed, reading in the dataset, performing any transformations and splits</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">train_dataloader</span></code> method is called, and the resulting <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> is iterated over during a training epoch</p></li>
+</ol>
+<p>Stage 3 is, roughly:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a single training epoch!</span>
+
+<span class="c1"># training_batches is an iterator that iterates over the training dataset</span>
+<span class="n">training_batches</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">datamodule</span><span class="o">.</span><span class="n">train_dataloader</span><span class="p">())</span>
+
+<span class="c1"># iterate over all batches in the training dataset</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">training_batches</span><span class="p">):</span>
+
+    <span class="c1"># pass the batch through the model and compute the loss</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">training_step</span><span class="p">((</span><span class="n">inputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">),</span> <span class="n">i</span><span class="p">)</span>
+
+    <span class="c1"># zero the gradients from the previous batch</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+    <span class="c1"># compute the gradients of the parameters wrt the loss</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+
+    <span class="c1"># update the parameters of the model</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Getting Started</a><ul>
+<li><a class="reference internal" href="#create-a-new-branch-and-conda-environment">Create a new branch and Conda environment</a></li>
+<li><a class="reference internal" href="#install-the-shipsnet-package">Install the <code class="docutils literal notranslate"><span class="pre">shipsnet</span></code> package</a></li>
+<li><a class="reference internal" href="#standardise-the-input-data">Standardise the input data</a></li>
+<li><a class="reference internal" href="#commit-your-changes-and-open-a-pr">Commit your changes and open a PR</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="../task_3.html"
+                          title="Previous page">&larr; Task 3: Introducing PyTorch</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="main_task.html"
+                          title="Next page">&rarr; Main Task</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/task_3/getting_started.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="main_task.html" title="Main Task"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../task_3.html" title="Task 3: Introducing PyTorch"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="../task_3.html" >Task 3: Introducing PyTorch</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Getting Started</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Joe Marsh Rossney.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

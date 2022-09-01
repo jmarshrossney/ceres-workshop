@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Main Task" href="main_task.html" />
-    <link rel="prev" title="Task 1: Fractals" href="../task_1.html" /> 
+    <link rel="prev" title="Task 1: A Binary Classification Problem" href="../task_1.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -56,11 +56,11 @@
           <a href="main_task.html" title="Main Task"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="../task_1.html" title="Task 1: Fractals"
+          <a href="../task_1.html" title="Task 1: A Binary Classification Problem"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="../task_1.html" accesskey="U">Task 1: Fractals</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../task_1.html" accesskey="U">Task 1: A Binary Classification Problem</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Getting Started</a></li> 
       </ul>
     </div>
@@ -74,35 +74,130 @@
             
   <section id="getting-started">
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h1>
-<section id="create-a-working-branch">
-<h2>Create a working branch<a class="headerlink" href="#create-a-working-branch" title="Permalink to this heading">¶</a></h2>
-<p>Starting from the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of your local clone of the repository, create and checkout a new branch called <code class="docutils literal notranslate"><span class="pre">task-1</span></code>.
-This is the branch you are going to work on, before finally merging back into <code class="docutils literal notranslate"><span class="pre">main</span></code> when you’re happy with everything.</p>
-<p>Push this new branch to the remote repository (i.e. to your Github).</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The branch must be named <code class="docutils literal notranslate"><span class="pre">task-1</span></code> for the tests to run when you make changes and push.</p>
+<section id="create-a-new-branch">
+<h2>Create a new branch<a class="headerlink" href="#create-a-new-branch" title="Permalink to this heading">¶</a></h2>
+<div class="admonition-before-you-start admonition">
+<p class="admonition-title">Before you start</p>
+<p>Make sure you are on the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of your local clone of the repository</p>
+</div>
+<p>Create and checkout a new branch called <code class="docutils literal notranslate"><span class="pre">task-1</span></code>.
+You can do this by either following the instructions for branch creation on Github Desktop, or by executing the following command in your terminal:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git checkout -b task-1
+</pre></div>
+</div>
+<p>This is the branch you are going to work on, before finally merging back into <code class="docutils literal notranslate"><span class="pre">main</span></code> when you’re happy with everything.</p>
+<p>Push this new branch to the remote repository (i.e. to your Github).
+The relevant terminal command is</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git push -u origin task-1
+</pre></div>
 </div>
 </section>
-<section id="get-the-code-running">
-<h2>Get the code running<a class="headerlink" href="#get-the-code-running" title="Permalink to this heading">¶</a></h2>
-<p>Navigate to the <code class="docutils literal notranslate"><span class="pre">task-1</span></code> directory and try to run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">mandelbrot.py</span></code>.
-You should find that this fails due to being unable to import the required packages, unless you happen to have all of the dependencies installed in your current environment. <a class="footnote-reference brackets" href="#f1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
-<p>Create a Conda environment with Python 3.9 and IPython installed.
-By inspecting the code, try to install the required packages.</p>
+<section id="create-a-conda-environment">
+<h2>Create a Conda environment<a class="headerlink" href="#create-a-conda-environment" title="Permalink to this heading">¶</a></h2>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">task_1</span></code> directory you should see a file called <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>.
+This contains a list of all the packages required to complete this task (excluding the extension!).</p>
+<p>Create a Conda environment containing these packages, and then activate it, using the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">--</span><span class="n">file</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">name</span> <span class="n">ceres</span><span class="o">-</span><span class="n">t1</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">ceres</span><span class="o">-</span><span class="n">t1</span>
+</pre></div>
+</div>
+</section>
+<section id="download-the-data">
+<h2>Download the data<a class="headerlink" href="#download-the-data" title="Permalink to this heading">¶</a></h2>
+<p>Navigate to the directory called <code class="docutils literal notranslate"><span class="pre">task_1</span></code>.</p>
+<p>The dataset for this task is a set of satellite images that have been labelled as either containing a ship or not containing a ship.
+The dataset comes from <a class="reference external" href="https://www.kaggle.com/">Kaggle</a>, a cool platform for ‘open data science’.
+If you don’t have a Kaggle account and don’t want one, skip this step and talk to me.</p>
+<p>If you have a Kaggle account, you can manually download the dataset by clicking the ‘download’ button on <a class="reference external" href="https://www.kaggle.com/datasets/rhammell/ships-in-satellite-imagery">the dataset webpage</a>.
+Unzip the downloaded file into a directory called <code class="docutils literal notranslate"><span class="pre">data</span></code> inside <code class="docutils literal notranslate"><span class="pre">task-1</span></code>.</p>
+<p>If you’re using git via the command line, type the following into your terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+<p>You should see a message saying <em>“nothing to commit, working tree clean”</em>.
+This may seem surprising - we have just added all of this data to our repository.
+However, there is a file called <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> which is telling git to ignore any <code class="docutils literal notranslate"><span class="pre">.png</span></code> or <code class="docutils literal notranslate"><span class="pre">.json</span></code> files.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You should not commit this data to version control. As it happens, it is within the size limits for GitHub, but it’s bad practice to commit raw data and it can slow things down. If you don’t see the ‘working tree clean’ message, let me know!</p>
+</div>
+</section>
+<section id="investigate-the-data">
+<h2>Investigate the data<a class="headerlink" href="#investigate-the-data" title="Permalink to this heading">¶</a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">task-1</span></code> directory, launch Jupyter Lab</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">lab</span>
+</pre></div>
+</div>
+<p>Open the notebook called <code class="docutils literal notranslate"><span class="pre">dataset.ipynb</span></code>.
+You should be able to run the cells inside using CTRL+ENTER.</p>
+<p>Use this notebook to investigate the structure and properties of the dataset.
+In particular, find out:</p>
+<ul class="simple">
+<li><p>What are the field names (<code class="docutils literal notranslate"><span class="pre">label</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, …) and what do they correspond to?</p></li>
+<li><p>How many images are there?</p></li>
+<li><p>How many images contain ships (the <code class="docutils literal notranslate"><span class="pre">label</span></code> field is 1) and how many do not (<code class="docutils literal notranslate"><span class="pre">label</span></code> is 0)</p></li>
+<li><p>How have the pixel values been serialized? I.e. what is the form of the <code class="docutils literal notranslate"><span class="pre">data</span></code> field?</p></li>
+<li><p>What is the maximum and minimum value of a pixel?</p></li>
+</ul>
+<p>You may find the following commands useful:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>  <span class="c1"># get the type of a Python object</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>  <span class="c1"># get the length of a Python object</span>
+
+<span class="c1"># dataframe is a pandas DataFrame</span>
+<span class="n">dataframe</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">dataframe</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In the same notebook, convert one or more of the elements of <code class="docutils literal notranslate"><span class="pre">RAW_DATA[&quot;data&quot;]</span></code> (i.e. the lists of pixels) to an image, and display this image.
+You will need to convert the list to a NumPy array and reshape it appropriately.</p>
+<p>Take a look at a selection of images with ships (<code class="docutils literal notranslate"><span class="pre">label</span></code> is 1) and without ships (<code class="docutils literal notranslate"><span class="pre">label</span></code> is 0).
+What sorts of images make up the ‘no ship’ class?</p>
+</section>
+<section id="commit-your-changes">
+<h2>Commit your changes<a class="headerlink" href="#commit-your-changes" title="Permalink to this heading">¶</a></h2>
+<p>Once you are happy with the notebook, it’s time to commit the changes to GitHub.
+However, first you should make sure you have cleared all of the cell outputs from the notebook, by bringing the <em>Kernel</em> menu down and pressing <em>Restart Kernel and Clear All Outputs</em>.
+The reason here is similar to the reason for not uploading the dataset; the outputs of Jupyter notebooks can contain huge amounts of data which slows down git operations.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Some packages such as <code class="docutils literal notranslate"><span class="pre">os</span></code> and <code class="docutils literal notranslate"><span class="pre">math</span></code> are Standard Library packages and do not require separate installation.</p>
+<p>This approach to clearing the outputs of Jupyter notebooks before making a commit is quite tedious, but to my knowledge there aren’t any <em>simple</em> ways to automate this.</p>
 </div>
-<p>Once you have successfully installed the  there are no more import errors, save your environment specification to a file called <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> in the <code class="docutils literal notranslate"><span class="pre">task-1</span></code> directory, by usng the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">export</span></code> command with the <code class="docutils literal notranslate"><span class="pre">--from-history</span></code> option.</p>
-<p>Commit <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> and push to GitHub.</p>
-<p class="rubric">Footnotes</p>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="f1" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>As we will discuss, this is <strong>not</strong> a good thing!</p>
-</aside>
-</aside>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you’re using GitHub Desktop, you will still follow the steps outlined below, even though you won’t be typing commands.</p>
+</div>
+<p>Before commiting, let’s check what has changed in the repository</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+<p>Unless you have many any other edits, you should see just one changed file - the notebook.</p>
+<p>The next step is to add these files to the ‘staging area’,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>Instead of <code class="docutils literal notranslate"><span class="pre">.</span></code> you can type file names explicitly; <code class="docutils literal notranslate"><span class="pre">.</span></code> just means ‘this directory’.</p>
+<p>To commit your changes locally, run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;some message which explains what changes you have made&quot;</span>
+</pre></div>
+</div>
+<p>with an appropriate message.</p>
+<p>Finally, push the commit to the <code class="docutils literal notranslate"><span class="pre">task-1</span></code> branch on the remote repository (i.e. on GitHub)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">task</span><span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</section>
+<section id="open-a-pull-request">
+<h2>Open a pull request<a class="headerlink" href="#open-a-pull-request" title="Permalink to this heading">¶</a></h2>
+<p>Now that things are actually working, let’s be bold and state our intentions to merge our changes into the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.
+Github provides a nice way to do this called a ‘pull request’ (PR).</p>
+<p>Go to your repository on the Github website, and navigate to the <code class="docutils literal notranslate"><span class="pre">task-1</span></code> branch.</p>
+<p>Now, in the ‘Pull Requests’ tab, create a PR to merge <code class="docutils literal notranslate"><span class="pre">task-1</span></code> into <code class="docutils literal notranslate"><span class="pre">main</span></code>.
+Give your PR a sensible title, e.g. <em>“My attempt at task 1”</em>.
+You can also add a description, comments, and even highlight bits of code when you make comments.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Do not merge the pull request!</p>
+</div>
 </section>
 </section>
 
@@ -116,8 +211,12 @@ By inspecting the code, try to install the required packages.</p>
     <h3><a href="../index.html">Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Getting Started</a><ul>
-<li><a class="reference internal" href="#create-a-working-branch">Create a working branch</a></li>
-<li><a class="reference internal" href="#get-the-code-running">Get the code running</a></li>
+<li><a class="reference internal" href="#create-a-new-branch">Create a new branch</a></li>
+<li><a class="reference internal" href="#create-a-conda-environment">Create a Conda environment</a></li>
+<li><a class="reference internal" href="#download-the-data">Download the data</a></li>
+<li><a class="reference internal" href="#investigate-the-data">Investigate the data</a></li>
+<li><a class="reference internal" href="#commit-your-changes">Commit your changes</a></li>
+<li><a class="reference internal" href="#open-a-pull-request">Open a pull request</a></li>
 </ul>
 </li>
 </ul>
@@ -126,7 +225,7 @@ By inspecting the code, try to install the required packages.</p>
   <div class="sphinxprev">
     <h4>Previous page</h4>
     <p class="topless"><a href="../task_1.html"
-                          title="Previous page">&larr; Task 1: Fractals</a></p>
+                          title="Previous page">&larr; Task 1: A Binary Classification Problem</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
@@ -186,11 +285,11 @@ By inspecting the code, try to install the required packages.</p>
           <a href="main_task.html" title="Main Task"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="../task_1.html" title="Task 1: Fractals"
+          <a href="../task_1.html" title="Task 1: A Binary Classification Problem"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">CEReS Workshop</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="../task_1.html" >Task 1: Fractals</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../task_1.html" >Task 1: A Binary Classification Problem</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Getting Started</a></li> 
       </ul>
     </div>
